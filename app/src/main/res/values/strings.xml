@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">O Point do Acai</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string name="loginok">Seja bem vindo!</string>
+    <string name="logindown">Erro ao tentar efetuar Login</string>
+
+    <string name="ok">OK</string>
+</resources>
