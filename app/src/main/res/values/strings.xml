@@ -8,4 +8,7 @@
     <string name="logindown">Erro ao tentar efetuar Login</string>
 
     <string name="ok">OK</string>
+
+    <string name="facebook_application_id" translatable="false">263710507722329</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb263710507722329</string>
 </resources>

@@ -5,12 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.devup.opointdoacai.opointdoacai.MainActivity"
+    android:id="@+id/main_layout"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fontFamily="@font/source_sans_pro" />
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="Sair"
+        android:background="@drawable/background"
+        android:textColor="@color/colorTextWithe"
+        android:textStyle="bold" />
+
+
+
 
 
 </RelativeLayout>
