@@ -14,12 +14,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import es.dmoral.toasty.Toasty;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
-
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,12 +30,26 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
+    //Firestore Backend
+    private FirebaseFirestore mFirestore;
+
     //Componetes
-    private Button logoutBtn;
+    private Button btnAcai;
+    private Button btnAcaiTop;
+    private Button btnSucos;
+    private Button btnVitaminas;
+    private Button btnSaladaDeFrutas;
+
+    //Variáveis
+    private String name;
+    private  String phone;
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        mAuth = FirebaseAuth.getInstance();
+        mFirestore = FirebaseFirestore.getInstance();
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -62,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,16 +85,13 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        logoutBtn = findViewById(R.id.logout_btn);
+        btnAcai = findViewById(R.id.btn_acai);
+        btnAcaiTop = findViewById(R.id.btn_acai_top);
+        btnSucos = findViewById(R.id.btn_sucos);
+        btnVitaminas = findViewById(R.id.btn_vitaminas);
+        btnSaladaDeFrutas = findViewById(R.id.btn_saladadefrutas);
 
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                mAuth.signOut();
-
-            }
-        });
 
 
     }
@@ -95,7 +107,35 @@ public class MainActivity extends AppCompatActivity {
 
                 Toasty.success(MainActivity.this, "Bem vindo!", Toast.LENGTH_SHORT, true).show();
 
-                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+
+                    if(currentUser.getDisplayName() != null){
+
+                        name = currentUser.getDisplayName();
+
+                    }else{
+
+                        name = "Anonimo";
+
+                    }
+
+                    if (currentUser.getPhoneNumber() != null){
+
+                        phone = currentUser.getPhoneNumber();
+
+                    }else{
+
+                        phone = "";
+
+                    }
+
+                    String user_id = mAuth.getCurrentUser().getUid();
+
+                    Map<String, Object> userMap = new HashMap<>();
+                    userMap.put("name", name);
+                    userMap.put("phone", phone);
+
+                    mFirestore.collection("Users").document(user_id).set(userMap);
 
             } else{
 
@@ -109,13 +149,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         if(mAuthStateListener != null){
+
             mAuth.removeAuthStateListener(mAuthStateListener);
+
         }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
         mAuth.addAuthStateListener(mAuthStateListener);
+
     }
 }
