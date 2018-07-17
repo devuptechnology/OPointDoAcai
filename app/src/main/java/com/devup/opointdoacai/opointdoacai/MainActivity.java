@@ -1,6 +1,7 @@
 package com.devup.opointdoacai.opointdoacai;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -85,13 +88,45 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        TapTargetView.showFor(this,
+                TapTarget.forView(findViewById(R.id.main_layout_target), "Seja Bem Vindo ao Aplicativo do Point do Açaí!\n\n\n\nMonte seu Açaí de forma rápida!", "Selecione esta opção para montar o seu Açai\nOu selecione outra das opções abaixo")
+                        .outerCircleColor(R.color.colorPrimary)
+                        .outerCircleAlpha(0.96f)
+                        .targetCircleColor(R.color.colorTextWithe)
+                        .titleTextSize(20)
+                        .titleTextColor(R.color.colorTextWithe)
+                        .descriptionTextSize(16)
+                        .descriptionTextColor(R.color.colorAccent)
+                        .textColor(R.color.colorTextWithe)
+                        .textTypeface(Typeface.SANS_SERIF)
+                        .dimColor(R.color.colorPrimaryDark)
+                        .drawShadow(true)
+                        .cancelable(true)
+                        .tintTarget(false)
+                        .transparentTarget(false)
+                        .targetRadius(110),
+                new TapTargetView.Listener(){
+                    @Override
+                    public void onTargetClick(TapTargetView view) {
+                        super.onTargetClick(view);
+                    }
+                });
+
         btnAcai = findViewById(R.id.btn_acai);
         btnAcaiTop = findViewById(R.id.btn_acai_top);
         btnSucos = findViewById(R.id.btn_sucos);
         btnVitaminas = findViewById(R.id.btn_vitaminas);
         btnSaladaDeFrutas = findViewById(R.id.btn_saladadefrutas);
 
+        btnAcai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent intent = new Intent(MainActivity.this, SizesActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
     }

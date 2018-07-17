@@ -5,25 +5,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.devup.opointdoacai.opointdoacai.MainActivity"
-    android:id="@+id/main_layout"
-    android:background="#FFFFFF">
+    tools:context=".SizesActivity">
+
 
     <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/main_coordinator_layout"
+        android:id="@+id/sizes_coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.design.widget.AppBarLayout
-            android:id="@+id/app_bar_main"
+            android:id="@+id/app_bar_sizes"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:background="@color/colorPrimary"
             android:theme="@style/MainTheme">
 
             <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar_main"
+                android:id="@+id/collapsing_toolbar_sizes"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/path"
@@ -31,10 +29,10 @@
                 app:expandedTitleMarginEnd="64dp"
                 app:expandedTitleMarginStart="48dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:title="O Point do Açaí">
+                app:title="Tamanhos">
 
                 <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar_id_main"
+                    android:id="@+id/toolbar_id_sizes"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
@@ -70,7 +68,6 @@
                     android:paddingBottom="22dp">
 
                     <android.support.design.widget.CoordinatorLayout
-                        android:id="@+id/main_layout_target"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clipToPadding="false"
@@ -79,7 +76,7 @@
 
 
                         <android.support.v7.widget.CardView
-                            android:id="@+id/card_view"
+                            android:id="@+id/card_view_200"
                             android:layout_width="150dp"
                             android:layout_height="138dp"
                             android:layout_margin="10dp"
@@ -96,14 +93,14 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/iconacai" />
+                                    android:src="@drawable/cups" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:padding="10dp"
-                                    android:text="Açaí"
+                                    android:text="200 ml"
                                     android:textColor="#646464"/>
 
                             </LinearLayout>
@@ -111,11 +108,11 @@
                         </android.support.v7.widget.CardView>
 
                         <Button
-                            android:id="@+id/btn_acai"
+                            android:id="@+id/btn_200"
                             android:layout_width="102dp"
                             android:layout_height="28dp"
                             android:background="@drawable/botao"
-                            app:layout_anchor="@+id/card_view"
+                            app:layout_anchor="@+id/card_view_200"
                             app:layout_anchorGravity="bottom|center" />
                     </android.support.design.widget.CoordinatorLayout>
 
@@ -128,7 +125,7 @@
                         android:paddingLeft="11dp">
 
                         <android.support.v7.widget.CardView
-                            android:id="@+id/card_view2"
+                            android:id="@+id/card_view_300"
                             android:layout_width="150dp"
                             android:layout_height="138dp"
                             android:layout_margin="10dp"
@@ -145,14 +142,14 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/iconacai" />
+                                    android:src="@drawable/cups" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:padding="10dp"
-                                    android:text="Top 10 do Point"
+                                    android:text="300 ml"
                                     android:textColor="#646464"/>
 
                             </LinearLayout>
@@ -160,11 +157,11 @@
                         </android.support.v7.widget.CardView>
 
                         <Button
-                            android:id="@+id/btn_acai_top"
+                            android:id="@+id/btn_300"
                             android:layout_width="102dp"
                             android:layout_height="28dp"
                             android:background="@drawable/botao"
-                            app:layout_anchor="@+id/card_view2"
+                            app:layout_anchor="@+id/card_view_300"
                             app:layout_anchorGravity="bottom|center" />
 
                     </android.support.design.widget.CoordinatorLayout>
@@ -187,7 +184,7 @@
 
 
                         <android.support.v7.widget.CardView
-                            android:id="@+id/card_view3"
+                            android:id="@+id/card_view_400"
                             android:layout_width="150dp"
                             android:layout_height="138dp"
                             android:layout_margin="10dp"
@@ -204,14 +201,14 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/iconsucos" />
+                                    android:src="@drawable/cups" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:padding="10dp"
-                                    android:text="Sucos"
+                                    android:text="400 ml"
                                     android:textColor="#646464"/>
 
                             </LinearLayout>
@@ -219,15 +216,16 @@
                         </android.support.v7.widget.CardView>
 
                         <Button
-                            android:id="@+id/btn_sucos"
+                            android:id="@+id/btn_400"
                             android:layout_width="102dp"
                             android:layout_height="28dp"
                             android:background="@drawable/botao"
-                            app:layout_anchor="@+id/card_view3"
+                            app:layout_anchor="@+id/card_view_400"
                             app:layout_anchorGravity="bottom|center" />
                     </android.support.design.widget.CoordinatorLayout>
 
                     <android.support.design.widget.CoordinatorLayout
+                        android:id="@+id/sizes_layout_target"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clipToPadding="false"
@@ -236,7 +234,7 @@
                         android:paddingLeft="11dp">
 
                         <android.support.v7.widget.CardView
-                            android:id="@+id/card_view4"
+                            android:id="@+id/card_view_500"
                             android:layout_width="150dp"
                             android:layout_height="138dp"
                             android:layout_margin="10dp"
@@ -253,26 +251,26 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/iconvitaminas" />
+                                    android:src="@drawable/cups" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:padding="10dp"
-                                    android:text="Vitaminas"
-                                    android:textColor="#646464"/>
+                                    android:text="500 ml"
+                                    android:textColor="#646464" />
 
                             </LinearLayout>
 
                         </android.support.v7.widget.CardView>
 
                         <Button
-                            android:id="@+id/btn_vitaminas"
+                            android:id="@+id/btn_500"
                             android:layout_width="102dp"
                             android:layout_height="28dp"
                             android:background="@drawable/botao"
-                            app:layout_anchor="@+id/card_view4"
+                            app:layout_anchor="@+id/card_view_500"
                             app:layout_anchorGravity="bottom|center" />
 
                     </android.support.design.widget.CoordinatorLayout>
@@ -294,8 +292,8 @@
 
 
                         <android.support.v7.widget.CardView
-                            android:id="@+id/card_view6"
-                            android:layout_width="344dp"
+                            android:id="@+id/card_view_700"
+                            android:layout_width="150dp"
                             android:layout_height="138dp"
                             android:layout_margin="10dp"
                             app:cardCornerRadius="5dp">
@@ -311,14 +309,14 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/iconsaladadefrutas" />
+                                    android:src="@drawable/cups" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:padding="10dp"
-                                    android:text="Salada de Frutas"
+                                    android:text="700 ml"
                                     android:textColor="#646464"/>
 
                             </LinearLayout>
@@ -326,11 +324,11 @@
                         </android.support.v7.widget.CardView>
 
                         <Button
-                            android:id="@+id/btn_saladadefrutas"
+                            android:id="@+id/btn_700"
                             android:layout_width="102dp"
                             android:layout_height="28dp"
                             android:background="@drawable/botao"
-                            app:layout_anchor="@+id/card_view6"
+                            app:layout_anchor="@+id/card_view_700"
                             app:layout_anchorGravity="bottom|center" />
                     </android.support.design.widget.CoordinatorLayout>
 
