@@ -3,16 +3,10 @@ package com.devup.opointdoacai.opointdoacai;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
-import com.rey.material.widget.Slider;
-import com.rey.material.widget.TextView;
 
-import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
 public class SizesActivity extends AppCompatActivity {
 

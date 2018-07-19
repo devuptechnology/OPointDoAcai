@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+
         TapTargetView.showFor(this,
                 TapTarget.forView(findViewById(R.id.main_layout_target), "Seja Bem Vindo ao Aplicativo do Point do Açaí!\n\n\n\nMonte seu Açaí de forma rápida!", "Selecione esta opção para montar o seu Açai\nOu selecione outra das opções abaixo")
                         .outerCircleColor(R.color.colorPrimary)
@@ -112,6 +115,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+        YoYo.with(Techniques.Pulse)
+                .duration(700)
+                .repeat(7)
+                .playOn(findViewById(R.id.main_layout_target));
+
+
+
         btnAcai = findViewById(R.id.btn_acai);
         btnAcaiTop = findViewById(R.id.btn_acai_top);
         btnSucos = findViewById(R.id.btn_sucos);
@@ -122,8 +132,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, SizesActivity.class);
-                startActivity(intent);
+
+                displayDialog(v);
+
+
+                //Intent intent = new Intent(MainActivity.this, SizesActivity.class);
+                //startActivity(intent);
 
             }
         });
@@ -195,6 +209,12 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         mAuth.addAuthStateListener(mAuthStateListener);
+
+    }
+
+    public void displayDialog(View view){
+
+        new SizesDialog().show(getSupportFragmentManager(), "sizesdialog");
 
     }
 }

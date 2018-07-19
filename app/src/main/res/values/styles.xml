@@ -38,4 +38,8 @@
         <item name="colorControlNormal">@color/colorPrimary</item>
     </style>
 
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/dialog_bg</item>
+    </style>
+
 </resources>
