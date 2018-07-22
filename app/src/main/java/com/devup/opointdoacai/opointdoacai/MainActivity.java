@@ -133,11 +133,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                displayDialog(v);
+                //displayDialog(v);
 
 
-                //Intent intent = new Intent(MainActivity.this, SizesActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, SizesActivity.class);
+                startActivity(intent);
 
             }
         });

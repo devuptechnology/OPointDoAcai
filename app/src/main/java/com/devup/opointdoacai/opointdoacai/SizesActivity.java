@@ -4,6 +4,8 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 
@@ -15,8 +17,8 @@ public class SizesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sizes);
 
-        TapTargetView.showFor(this,
-                TapTarget.forView(findViewById(R.id.sizes_layout_target), "Você pode escolher o tamanho do seu Copo\n\n\n\n\n\nEste é o mais pedido:", "")
+        /*TapTargetView.showFor(this,
+                TapTarget.forView(findViewById(R.id.card_qnt_500), "Você pode escolher o tamanho do seu Copo\n\n\n\n\n\nEste é o mais pedido:", "")
                         .outerCircleColor(R.color.colorPrimary)
                         .outerCircleAlpha(0.96f)
                         .targetCircleColor(R.color.colorTextWithe)
@@ -37,7 +39,12 @@ public class SizesActivity extends AppCompatActivity {
                     public void onTargetClick(TapTargetView view) {
                         super.onTargetClick(view);
                     }
-                });
+                });*/
+
+        YoYo.with(Techniques.Pulse)
+                .duration(700)
+                .repeat(7)
+                .playOn(findViewById(R.id.card_qnt_500));
 
     }
 

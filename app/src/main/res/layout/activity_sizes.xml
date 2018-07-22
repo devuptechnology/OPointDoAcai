@@ -50,291 +50,252 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:duplicateParentState="false"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingTop="20dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_qnt_200"
+                    android:layout_width="320dp"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_margin="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp">
+
+                        <ImageView
+                            android:id="@+id/image_1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/iconacai"
+                            android:layout_margin="10dp"/>
+
+                        <TextView
+                            android:id="@+id/qnt_ml_1"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="10dp"
+                            android:text="200 ml"
+                            android:layout_toRightOf="@+id/image_1"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:id="@+id/price_acai_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="10dp"
+                            android:text="R$ 3,00"
+                            android:textSize="16sp" />
+
+                    </RelativeLayout>
+
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                android:id="@+id/card_qnt_300"
+                android:layout_width="320dp"
+                android:layout_height="55dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                android:layout_below="@+id/card_qnt_200"
+                android:layout_margin="10dp">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clipToPadding="false"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingBottom="22dp">
+                    android:layout_margin="2dp">
 
-                    <android.support.design.widget.CoordinatorLayout
+                    <ImageView
+                        android:id="@+id/image_2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/iconacai"
+                        android:layout_margin="10dp"/>
+
+                    <TextView
+                        android:id="@+id/qnt_ml_2"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="10dp"
+                        android:text="300 ml"
+                        android:layout_toRightOf="@+id/image_2"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/price_acai_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:clipToPadding="false"
-                        android:orientation="vertical"
-                        android:paddingRight="11dp">
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="10dp"
+                        android:text="R$ 4,00"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
 
 
-                        <android.support.v7.widget.CardView
-                            android:id="@+id/card_view_200"
-                            android:layout_width="150dp"
-                            android:layout_height="138dp"
+            </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_qnt_400"
+                    android:layout_width="320dp"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_below="@+id/card_qnt_300"
+                    android:layout_margin="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp">
+
+                        <ImageView
+                            android:id="@+id/image_3"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/iconacai"
+                            android:layout_margin="10dp"/>
+
+                        <TextView
+                            android:id="@+id/qnt_ml_3"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_centerVertical="true"
                             android:layout_margin="10dp"
-                            app:cardCornerRadius="5dp">
+                            android:text="400 ml"
+                            android:layout_toRightOf="@+id/image_3"
+                            android:textSize="16sp"/>
 
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/cardview_light_background"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/cups" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:padding="10dp"
-                                    android:text="200 ml"
-                                    android:textColor="#646464"/>
-
-                            </LinearLayout>
-
-                        </android.support.v7.widget.CardView>
-
-                        <Button
-                            android:id="@+id/btn_200"
-                            android:layout_width="102dp"
-                            android:layout_height="28dp"
-                            android:background="@drawable/botao"
-                            app:layout_anchor="@+id/card_view_200"
-                            app:layout_anchorGravity="bottom|center" />
-                    </android.support.design.widget.CoordinatorLayout>
-
-                    <android.support.design.widget.CoordinatorLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clipToPadding="false"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:paddingLeft="11dp">
-
-                        <android.support.v7.widget.CardView
-                            android:id="@+id/card_view_300"
-                            android:layout_width="150dp"
-                            android:layout_height="138dp"
+                        <TextView
+                            android:id="@+id/price_acai_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
                             android:layout_margin="10dp"
-                            app:cardCornerRadius="5dp">
+                            android:text="R$ 5,00"
+                            android:textSize="16sp"
+                            android:layout_alignParentEnd="true"/>
 
+                    </RelativeLayout>
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/cardview_light_background"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                </android.support.v7.widget.CardView>
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/cups" />
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_qnt_500"
+                    android:layout_width="320dp"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:layout_below="@+id/card_qnt_400"
+                    android:layout_margin="10dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:padding="10dp"
-                                    android:text="300 ml"
-                                    android:textColor="#646464"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp">
 
-                            </LinearLayout>
+                        <ImageView
+                            android:id="@+id/image_4"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/iconacaiwhite"
+                            android:layout_margin="10dp"/>
 
-                        </android.support.v7.widget.CardView>
-
-                        <Button
-                            android:id="@+id/btn_300"
-                            android:layout_width="102dp"
-                            android:layout_height="28dp"
-                            android:background="@drawable/botao"
-                            app:layout_anchor="@+id/card_view_300"
-                            app:layout_anchorGravity="bottom|center" />
-
-                    </android.support.design.widget.CoordinatorLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clipToPadding="true"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingBottom="22dp">
-
-                    <android.support.design.widget.CoordinatorLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clipToPadding="false"
-                        android:orientation="vertical"
-                        android:paddingRight="11dp">
-
-
-                        <android.support.v7.widget.CardView
-                            android:id="@+id/card_view_400"
-                            android:layout_width="150dp"
-                            android:layout_height="138dp"
+                        <TextView
+                            android:id="@+id/qnt_ml_4"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_centerVertical="true"
                             android:layout_margin="10dp"
-                            app:cardCornerRadius="5dp">
+                            android:text="500 ml"
+                            android:layout_toRightOf="@+id/image_4"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorTextWithe"/>
 
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/cardview_light_background"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/cups" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:padding="10dp"
-                                    android:text="400 ml"
-                                    android:textColor="#646464"/>
-
-                            </LinearLayout>
-
-                        </android.support.v7.widget.CardView>
-
-                        <Button
-                            android:id="@+id/btn_400"
-                            android:layout_width="102dp"
-                            android:layout_height="28dp"
-                            android:background="@drawable/botao"
-                            app:layout_anchor="@+id/card_view_400"
-                            app:layout_anchorGravity="bottom|center" />
-                    </android.support.design.widget.CoordinatorLayout>
-
-                    <android.support.design.widget.CoordinatorLayout
-                        android:id="@+id/sizes_layout_target"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clipToPadding="false"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:paddingLeft="11dp">
-
-                        <android.support.v7.widget.CardView
-                            android:id="@+id/card_view_500"
-                            android:layout_width="150dp"
-                            android:layout_height="138dp"
+                        <TextView
+                            android:id="@+id/price_acai_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
                             android:layout_margin="10dp"
-                            app:cardCornerRadius="5dp">
+                            android:text="R$ 6,00"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorTextWithe"/>
 
+                    </RelativeLayout>
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/cardview_light_background"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                </android.support.v7.widget.CardView>
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/cups" />
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_qnt_700"
+                    android:layout_width="320dp"
+                    android:layout_height="55dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_below="@+id/card_qnt_500"
+                    android:layout_margin="10dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:padding="10dp"
-                                    android:text="500 ml"
-                                    android:textColor="#646464" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp">
 
-                            </LinearLayout>
+                        <ImageView
+                            android:id="@+id/image_5"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/iconacai"
+                            android:layout_margin="10dp"/>
 
-                        </android.support.v7.widget.CardView>
-
-                        <Button
-                            android:id="@+id/btn_500"
-                            android:layout_width="102dp"
-                            android:layout_height="28dp"
-                            android:background="@drawable/botao"
-                            app:layout_anchor="@+id/card_view_500"
-                            app:layout_anchorGravity="bottom|center" />
-
-                    </android.support.design.widget.CoordinatorLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingBottom="22dp">
-
-                    <android.support.design.widget.CoordinatorLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clipToPadding="false"
-                        android:orientation="vertical">
-
-
-                        <android.support.v7.widget.CardView
-                            android:id="@+id/card_view_700"
-                            android:layout_width="150dp"
-                            android:layout_height="138dp"
+                        <TextView
+                            android:id="@+id/qnt_ml_5"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_centerVertical="true"
                             android:layout_margin="10dp"
-                            app:cardCornerRadius="5dp">
+                            android:text="700 ml"
+                            android:layout_toRightOf="@+id/image_5"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:id="@+id/price_acai_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="10dp"
+                            android:text="R$ 9,00"
+                            android:textSize="16sp" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/cardview_light_background"
-                                android:gravity="center"
-                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/cups" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:padding="10dp"
-                                    android:text="700 ml"
-                                    android:textColor="#646464"/>
-
-                            </LinearLayout>
-
-                        </android.support.v7.widget.CardView>
-
-                        <Button
-                            android:id="@+id/btn_700"
-                            android:layout_width="102dp"
-                            android:layout_height="28dp"
-                            android:background="@drawable/botao"
-                            app:layout_anchor="@+id/card_view_700"
-                            app:layout_anchorGravity="bottom|center" />
-                    </android.support.design.widget.CoordinatorLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
+            </RelativeLayout>
 
         </android.support.v4.widget.NestedScrollView>
 
