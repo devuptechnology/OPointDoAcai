@@ -115,10 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        YoYo.with(Techniques.Pulse)
-                .duration(700)
-                .repeat(7)
-                .playOn(findViewById(R.id.main_layout_target));
+
 
 
 
@@ -138,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, SizesActivity.class);
                 startActivity(intent);
+
 
             }
         });
