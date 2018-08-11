@@ -8,66 +8,73 @@
     tools:context=".SizesActivity">
 
 
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/sizes_coordinator_layout"
+    <RelativeLayout
+        android:id="@+id/layout_of_cards"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:duplicateParentState="false"
+        android:gravity="center|top"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/app_bar_sizes"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@color/colorPrimary"
-            android:theme="@style/MainTheme">
+         <android.support.v7.widget.CardView
+                        android:id="@+id/card_qnt_200"
+                        android:layout_width="320dp"
+                        android:layout_height="55dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="5dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_margin="10dp">
 
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar_sizes"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/path"
-                app:contentScrim="?attr/colorPrimaryDark"
-                app:expandedTitleMarginEnd="64dp"
-                app:expandedTitleMarginStart="48dp"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:title="Tamanhos">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="2dp">
 
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar_id_sizes"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:layout_collapseMode="pin"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+                            <ImageView
+                                android:id="@+id/image_1"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/iconacai"
+                                android:layout_margin="10dp"/>
 
-                </android.support.v7.widget.Toolbar>
+                            <TextView
+                                android:id="@+id/qnt_ml_1"
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="10dp"
+                                android:text="200 ml"
+                                android:layout_toRightOf="@+id/image_1"
+                                android:textSize="16sp"/>
 
-            </android.support.design.widget.CollapsingToolbarLayout>
+                            <TextView
+                                android:id="@+id/price_acai_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="10dp"
+                                android:text="R$ 3,00"
+                                android:textSize="16sp" />
 
-        </android.support.design.widget.AppBarLayout>
-
-        <android.support.v4.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                        </RelativeLayout>
 
 
-            <RelativeLayout
-                android:id="@+id/layout_of_cards"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:duplicateParentState="false"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toTopOf="parent">
+                    </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/card_qnt_200"
+        <android.support.v7.widget.CardView
+                    android:id="@+id/card_qnt_300"
                     android:layout_width="320dp"
                     android:layout_height="55dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="5dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                    android:layout_below="@+id/card_qnt_200"
                     android:layout_margin="10dp">
 
                     <RelativeLayout
@@ -76,7 +83,7 @@
                         android:layout_margin="2dp">
 
                         <ImageView
-                            android:id="@+id/image_1"
+                            android:id="@+id/image_2"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_centerVertical="true"
@@ -84,23 +91,23 @@
                             android:layout_margin="10dp"/>
 
                         <TextView
-                            android:id="@+id/qnt_ml_1"
+                            android:id="@+id/qnt_ml_2"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_margin="10dp"
-                            android:text="200 ml"
-                            android:layout_toRightOf="@+id/image_1"
+                            android:text="300 ml"
+                            android:layout_toRightOf="@+id/image_2"
                             android:textSize="16sp"/>
 
                         <TextView
-                            android:id="@+id/price_acai_1"
+                            android:id="@+id/price_acai_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:layout_margin="10dp"
-                            android:text="R$ 3,00"
+                            android:text="R$ 4,00"
                             android:textSize="16sp" />
 
                     </RelativeLayout>
@@ -108,212 +115,190 @@
 
                 </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-                android:id="@+id/card_qnt_300"
-                android:layout_width="320dp"
-                android:layout_height="55dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                android:layout_below="@+id/card_qnt_200"
-                android:layout_margin="10dp">
+        <android.support.v7.widget.CardView
+                        android:id="@+id/card_qnt_400"
+                        android:layout_width="320dp"
+                        android:layout_height="55dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="5dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_below="@+id/card_qnt_300"
+                        android:layout_margin="10dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="2dp">
 
-                    <ImageView
-                        android:id="@+id/image_2"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/iconacai"
-                        android:layout_margin="10dp"/>
+                            <ImageView
+                                android:id="@+id/image_3"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/iconacai"
+                                android:layout_margin="10dp"/>
 
-                    <TextView
-                        android:id="@+id/qnt_ml_2"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_margin="10dp"
-                        android:text="300 ml"
-                        android:layout_toRightOf="@+id/image_2"
-                        android:textSize="16sp"/>
+                            <TextView
+                                android:id="@+id/qnt_ml_3"
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="10dp"
+                                android:text="400 ml"
+                                android:layout_toRightOf="@+id/image_3"
+                                android:textSize="16sp"/>
 
-                    <TextView
-                        android:id="@+id/price_acai_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_margin="10dp"
-                        android:text="R$ 4,00"
-                        android:textSize="16sp" />
+                            <TextView
+                                android:id="@+id/price_acai_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="10dp"
+                                android:text="R$ 5,00"
+                                android:textSize="16sp"
+                                android:layout_alignParentEnd="true"/>
 
-                </RelativeLayout>
+                        </RelativeLayout>
 
+                    </android.support.v7.widget.CardView>
 
-            </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+                        android:id="@+id/card_qnt_500"
+                        android:layout_width="320dp"
+                        android:layout_height="55dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="5dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:layout_below="@+id/card_qnt_400"
+                        android:layout_margin="10dp">
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/card_qnt_400"
-                    android:layout_width="320dp"
-                    android:layout_height="55dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="5dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:layout_below="@+id/card_qnt_300"
-                    android:layout_margin="10dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="2dp">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="2dp">
+                            <ImageView
+                                android:id="@+id/image_4"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/iconacaiwhite"
+                                android:layout_margin="10dp"/>
 
-                        <ImageView
-                            android:id="@+id/image_3"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/iconacai"
-                            android:layout_margin="10dp"/>
+                            <TextView
+                                android:id="@+id/qnt_ml_4"
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="10dp"
+                                android:text="500 ml"
+                                android:layout_toRightOf="@+id/image_4"
+                                android:textSize="16sp"
+                                android:textColor="@color/colorTextWithe"/>
 
-                        <TextView
-                            android:id="@+id/qnt_ml_3"
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:text="400 ml"
-                            android:layout_toRightOf="@+id/image_3"
-                            android:textSize="16sp"/>
+                            <TextView
+                                android:id="@+id/price_acai_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="10dp"
+                                android:text="R$ 6,00"
+                                android:textSize="16sp"
+                                android:textColor="@color/colorTextWithe"/>
 
-                        <TextView
-                            android:id="@+id/price_acai_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:text="R$ 5,00"
-                            android:textSize="16sp"
-                            android:layout_alignParentEnd="true"/>
+                        </RelativeLayout>
 
-                    </RelativeLayout>
+                    </android.support.v7.widget.CardView>
 
-                </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+                        android:id="@+id/card_qnt_700"
+                        android:layout_width="320dp"
+                        android:layout_height="55dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="5dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_below="@+id/card_qnt_500"
+                        android:layout_margin="10dp">
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/card_qnt_500"
-                    android:layout_width="320dp"
-                    android:layout_height="55dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="5dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:layout_below="@+id/card_qnt_400"
-                    android:layout_margin="10dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="2dp">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="2dp">
+                            <ImageView
+                                android:id="@+id/image_5"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/iconacai"
+                                android:layout_margin="10dp"/>
 
-                        <ImageView
-                            android:id="@+id/image_4"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/iconacaiwhite"
-                            android:layout_margin="10dp"/>
+                            <TextView
+                                android:id="@+id/qnt_ml_5"
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="10dp"
+                                android:text="700 ml"
+                                android:layout_toRightOf="@+id/image_5"
+                                android:textSize="16sp"/>
 
-                        <TextView
-                            android:id="@+id/qnt_ml_4"
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:text="500 ml"
-                            android:layout_toRightOf="@+id/image_4"
-                            android:textSize="16sp"
-                            android:textColor="@color/colorTextWithe"/>
+                            <TextView
+                                android:id="@+id/price_acai_5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="10dp"
+                                android:text="R$ 9,00"
+                                android:textSize="16sp" />
 
-                        <TextView
-                            android:id="@+id/price_acai_4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:text="R$ 6,00"
-                            android:textSize="16sp"
-                            android:textColor="@color/colorTextWithe"/>
+                        </RelativeLayout>
 
-                    </RelativeLayout>
+                    </android.support.v7.widget.CardView>
 
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:id="@+id/card_qnt_700"
-                    android:layout_width="320dp"
-                    android:layout_height="55dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="5dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:layout_below="@+id/card_qnt_500"
-                    android:layout_margin="10dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="2dp">
-
-                        <ImageView
-                            android:id="@+id/image_5"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/iconacai"
-                            android:layout_margin="10dp"/>
-
-                        <TextView
-                            android:id="@+id/qnt_ml_5"
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:text="700 ml"
-                            android:layout_toRightOf="@+id/image_5"
-                            android:textSize="16sp"/>
-
-                        <TextView
-                            android:id="@+id/price_acai_5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:text="R$ 9,00"
-                            android:textSize="16sp" />
-
-                    </RelativeLayout>
-
-                </android.support.v7.widget.CardView>
-
-
-            </RelativeLayout>
-
-        </android.support.v4.widget.NestedScrollView>
-
-    </android.support.design.widget.CoordinatorLayout>
+    </RelativeLayout>
 
     <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="56dp">
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/nav_bottom_items">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end">
+
+            <TextView
+                android:id="@+id/bt_nav_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Total:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:layout_marginRight="2dp"/>
+
+            <TextView
+                android:id="@+id/bt_nav_txt_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="R$ 0,00"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:layout_toRightOf="@+id/bt_nav_txt"
+                android:layout_margin="10dp" />
+
+        </RelativeLayout>
+
 
     </android.support.design.widget.BottomNavigationView>
 

@@ -1,4 +1,4 @@
-package com.devup.opointdoacai.opointdoacai;
+package com.devup.opointdoacai.opointdoacai.modelclasses;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
+
+import com.devup.opointdoacai.opointdoacai.R;
+import com.devup.opointdoacai.opointdoacai.SizesActivity;
 
 import es.dmoral.toasty.Toasty;
 

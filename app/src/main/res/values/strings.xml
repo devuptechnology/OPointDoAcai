@@ -12,6 +12,8 @@
     <string name="facebook_application_id" translatable="false">263710507722329</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fb263710507722329</string>
 
+    <string name="cart">Pedidos</string>
+
     <string-array name="sizes">
         <item>200 ml</item>
         <item>300 ml</item>

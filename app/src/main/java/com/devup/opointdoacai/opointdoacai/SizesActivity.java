@@ -1,11 +1,13 @@
 package com.devup.opointdoacai.opointdoacai;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -17,7 +19,7 @@ public class SizesActivity extends AppCompatActivity {
 
     private CardView cardView1, cardView2, cardView3, cardView4, cardView5;
 
-    private int tamanhoEscolhido;
+    private double valorCopo = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,12 @@ public class SizesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                tamanhoEscolhido = 1;
+                valorCopo = 3.0;
+                Intent intent = new Intent(SizesActivity.this, CompActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putDouble("valorcopo", valorCopo);
+                intent.putExtras(bundle);
+                startActivity(intent);
 
             }
         });
@@ -46,7 +53,12 @@ public class SizesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                tamanhoEscolhido = 2;
+                valorCopo = 4.0;
+                Intent intent = new Intent(SizesActivity.this, CompActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putDouble("valorcopo", valorCopo);
+                intent.putExtras(bundle);
+                startActivity(intent);
 
             }
         });
@@ -55,7 +67,12 @@ public class SizesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                tamanhoEscolhido = 3;
+                valorCopo = 5.0;
+                Intent intent = new Intent(SizesActivity.this, CompActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putDouble("valorcopo", valorCopo);
+                intent.putExtras(bundle);
+                startActivity(intent);
 
             }
         });
@@ -64,7 +81,12 @@ public class SizesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                tamanhoEscolhido = 4;
+                valorCopo = 6.0;
+                Intent intent = new Intent(SizesActivity.this, CompActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putDouble("valorcopo", valorCopo);
+                intent.putExtras(bundle);
+                startActivity(intent);
 
             }
         });
@@ -73,7 +95,12 @@ public class SizesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                tamanhoEscolhido = 5;
+                valorCopo = 9.0;
+                Intent intent = new Intent(SizesActivity.this, CompActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putDouble("valorcopo", valorCopo);
+                intent.putExtras(bundle);
+                startActivity(intent);
 
             }
         });
@@ -86,7 +113,7 @@ public class SizesActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        tamanhoEscolhido = 0;
+        valorCopo = 0.0;
 
     }
 

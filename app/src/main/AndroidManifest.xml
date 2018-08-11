@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.devup.opointdoacai.opointdoacai">
 
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -22,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SizesActivity"></activity>
+        <activity android:name=".SizesActivity" />
+        <activity android:name=".CompActivity"></activity>
     </application>
 
 </manifest>
