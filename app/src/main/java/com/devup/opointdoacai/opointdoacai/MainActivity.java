@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.devup.opointdoacai.opointdoacai.modelclasses.SizesDialog;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -167,6 +166,9 @@ public class MainActivity extends AppCompatActivity {
 
                         phone = currentUser.getPhoneNumber();
 
+                        User user = new User();
+                        user.setPhone(phone);
+
                     }else{
 
                         phone = "";
@@ -204,12 +206,6 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         mAuth.addAuthStateListener(mAuthStateListener);
-
-    }
-
-    public void displayDialog(View view){
-
-        new SizesDialog().show(getSupportFragmentManager(), "sizesdialog");
 
     }
 }

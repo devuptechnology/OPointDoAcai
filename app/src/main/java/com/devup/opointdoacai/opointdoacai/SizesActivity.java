@@ -13,6 +13,8 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class SizesActivity extends AppCompatActivity {
@@ -21,10 +23,16 @@ public class SizesActivity extends AppCompatActivity {
 
     private double valorCopo = 0.0;
 
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mOrderDatabaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sizes);
+
+        mFirebaseDatabase  = FirebaseDatabase.getInstance();
+        mOrderDatabaseReference =  mFirebaseDatabase.getReference().child("pedidos");
 
         //Setando Orientação de Retrato
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
