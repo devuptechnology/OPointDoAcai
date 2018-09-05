@@ -2,35 +2,17 @@ package com.devup.opointdoacai.opointdoacai;
 
 public class Order {
 
-    private String IdProdutos;
-    private String Complementos;
     private String Quantidade;
+    private String Complementos;
     private String Preco;
 
     public Order() {
     }
 
-    public Order(String idProdutos, String complementos, String quantidade, String preco) {
-        IdProdutos = idProdutos;
-        Complementos = complementos;
+    public Order(String quantidade, String complementos, String preco) {
         Quantidade = quantidade;
-        Preco = preco;
-    }
-
-    public String getIdProdutos() {
-        return IdProdutos;
-    }
-
-    public void setIdProdutos(String idProdutos) {
-        IdProdutos = idProdutos;
-    }
-
-    public String getComplementos() {
-        return Complementos;
-    }
-
-    public void setComplementos(String complementos) {
         Complementos = complementos;
+        Preco = preco;
     }
 
     public String getQuantidade() {
@@ -39,6 +21,14 @@ public class Order {
 
     public void setQuantidade(String quantidade) {
         Quantidade = quantidade;
+    }
+
+    public String getComplementos() {
+        return Complementos;
+    }
+
+    public void setComplementos(String complementos) {
+        Complementos = complementos;
     }
 
     public String getPreco() {

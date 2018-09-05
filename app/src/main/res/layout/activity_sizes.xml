@@ -264,42 +264,4 @@
 
     </RelativeLayout>
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/nav_bottom_items">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|end">
-
-            <TextView
-                android:id="@+id/bt_nav_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="Total:"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16sp"
-                android:layout_marginRight="2dp"/>
-
-            <TextView
-                android:id="@+id/bt_nav_txt_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="R$ 0,00"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16sp"
-                android:layout_toRightOf="@+id/bt_nav_txt"
-                android:layout_margin="10dp" />
-
-        </RelativeLayout>
-
-
-    </android.support.design.widget.BottomNavigationView>
-
 </RelativeLayout>

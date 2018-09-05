@@ -21,7 +21,8 @@ public class SizesActivity extends AppCompatActivity {
 
     private CardView cardView1, cardView2, cardView3, cardView4, cardView5;
 
-    private double valorCopo = 0.0;
+    private float valorqnt = 0.00f;
+    private String quantidade = "";
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mOrderDatabaseReference;
@@ -47,10 +48,13 @@ public class SizesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                valorCopo = 3.0;
-                Intent intent = new Intent(SizesActivity.this, CompActivity.class);
+                valorqnt = 3.00f;
+                quantidade = "Açaí de 200 ml";
+
                 Bundle bundle = new Bundle();
-                bundle.putDouble("valorcopo", valorCopo);
+                bundle.putFloat("value", valorqnt);
+                bundle.putString("qnt", quantidade);
+                Intent intent = new Intent(getApplicationContext(), CompActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
 
@@ -61,10 +65,13 @@ public class SizesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                valorCopo = 4.0;
-                Intent intent = new Intent(SizesActivity.this, CompActivity.class);
+                valorqnt = 4.00f;
+                quantidade = "Açaí de 300 ml";
+
                 Bundle bundle = new Bundle();
-                bundle.putDouble("valorcopo", valorCopo);
+                bundle.putFloat("value", valorqnt);
+                bundle.putString("qnt", quantidade);
+                Intent intent = new Intent(getApplicationContext(), CompActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
 
@@ -75,10 +82,13 @@ public class SizesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                valorCopo = 5.0;
-                Intent intent = new Intent(SizesActivity.this, CompActivity.class);
+                valorqnt = 5.00f;
+                quantidade = "Açaí de 400 ml";
+
                 Bundle bundle = new Bundle();
-                bundle.putDouble("valorcopo", valorCopo);
+                bundle.putFloat("value", valorqnt);
+                bundle.putString("qnt", quantidade);
+                Intent intent = new Intent(getApplicationContext(), CompActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
 
@@ -89,10 +99,13 @@ public class SizesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                valorCopo = 6.0;
-                Intent intent = new Intent(SizesActivity.this, CompActivity.class);
+                valorqnt = 6.00f;
+                quantidade = "Açaí de 500 ml";
+
                 Bundle bundle = new Bundle();
-                bundle.putDouble("valorcopo", valorCopo);
+                bundle.putFloat("value", valorqnt);
+                bundle.putString("qnt", quantidade);
+                Intent intent = new Intent(getApplicationContext(), CompActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
 
@@ -103,10 +116,13 @@ public class SizesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                valorCopo = 9.0;
-                Intent intent = new Intent(SizesActivity.this, CompActivity.class);
+                valorqnt = 9.00f;
+                quantidade = "Açaí de 700 ml";
+
                 Bundle bundle = new Bundle();
-                bundle.putDouble("valorcopo", valorCopo);
+                bundle.putFloat("value", valorqnt);
+                bundle.putString("qnt", quantidade);
+                Intent intent = new Intent(getApplicationContext(), CompActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
 
@@ -121,7 +137,7 @@ public class SizesActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        valorCopo = 0.0;
+
 
     }
 

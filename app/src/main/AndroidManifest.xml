@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SizesActivity" />
-        <activity android:name=".CompActivity"></activity>
+        <activity android:name=".CompActivity" />
+        <activity android:name=".Cart"></activity>
     </application>
 
 </manifest>
