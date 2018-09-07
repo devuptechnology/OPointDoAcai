@@ -3,31 +3,42 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:id="@+id/adress_dialog">
+    android:id="@+id/adress_dialog"
+    android:background="@drawable/dialog_bg">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/register_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:id="@+id/adress_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/path"
+        android:layout_margin="20dp"
+        android:src="@drawable/map"
         android:gravity="center" />
 
+    <TextView
+        android:id="@+id/txt_dialog_adress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adress_image"
+        android:layout_margin="20dp"
+        android:text="Digite o endereço de entrega"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"/>
+
     <EditText
-        android:id="@+id/register_name"
+        android:id="@+id/edt_cep"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_image"
+        android:layout_below="@+id/txt_dialog_adress"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Nome..."
-        android:inputType="textEmailAddress"
+        android:maxLength="8"
+        android:hint="CEP..."
+        android:inputType="text"
         android:paddingBottom="15dp"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
@@ -35,54 +46,96 @@
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/register_email"
+        android:id="@+id/edt_rua"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_name"
+        android:layout_below="@+id/edt_cep"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Rua..."
+        android:inputType="text"
+        android:paddingBottom="15dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingTop="15dp"
+        android:textSize="16sp"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@+id/edt_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt_rua"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Email..."
-        android:inputType="textEmailAddress"
+        android:hint="Nº..."
+        android:inputType="numberSigned"
         android:paddingBottom="15dp"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
         android:paddingTop="15dp"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:visibility="visible" />
 
     <EditText
-        android:id="@+id/register_password"
+        android:id="@+id/edt_bairro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_email"
+        android:layout_below="@+id/edt_num"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Senha..."
-        android:inputType="textPassword"
+        android:hint="Bairro..."
+        android:inputType="text"
         android:paddingBottom="15dp"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
         android:paddingTop="15dp"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:visibility="visible" />
+
+    <Spinner
+        android:id="@+id/spinner_cidade"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt_bairro"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:entries="@array/cidades_array"
+        android:paddingBottom="15dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingTop="15dp"
+        android:textSize="16sp"
+        android:visibility="visible">
+
+    </Spinner>
 
     <Button
-        android:id="@+id/register_btn"
+        android:id="@+id/btn_continuar_dialog_adress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_password"
+        android:layout_below="@+id/spinner_cidade"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/bgbtnconfirmar"
         android:textColor="@color/colorTextWithe"
         android:fontFamily="@font/source_sans_pro"
-        android:text="Criar Conta"
+        android:text="Continuar"
         android:textAllCaps="false"
         android:textSize="16sp" />
+
 
 </RelativeLayout>

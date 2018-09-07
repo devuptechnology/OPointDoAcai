@@ -125,13 +125,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                //displayDialog(v);
-
-
                 Intent intent = new Intent(MainActivity.this, SizesActivity.class);
                 startActivity(intent);
-
 
             }
         });
