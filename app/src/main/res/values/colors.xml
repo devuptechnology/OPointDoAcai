@@ -19,5 +19,9 @@
     <color name="material_a200">#388E3C</color>
     <color name="material_a700">#ffffff</color>
     <color name="material_a700b">#ffffff</color>
+    
+    <color name="paint_colors">#9733EE</color>
+    
+    <color name="bgRowBackground">#FA315B</color>
 
 </resources>

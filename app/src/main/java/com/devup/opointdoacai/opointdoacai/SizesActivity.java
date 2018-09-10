@@ -136,9 +136,7 @@ public class SizesActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
-
-
+        finish();
     }
 
     private void animationsPlay() {
@@ -175,6 +173,5 @@ public class SizesActivity extends AppCompatActivity {
 
 
     }
-
 
 }

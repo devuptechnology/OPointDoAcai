@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main_nav_home"
+        android:checked="true"
+        android:icon="@drawable/ic_home"
+        android:title="Home">
+    </item>
+
+    <item
+        android:id="@+id/main_nav_pedidos"
+        android:icon="@drawable/ic_shop_bag"
+        android:title="Pedidos">
+    </item>
+
+    <item
+        android:id="@+id/main_nav_fidelidade"
+        android:icon="@drawable/ic_gift_box"
+        android:title="Fidelidade">
+    </item>
+    <group>
+        <item
+            android:title="">
+        </item>
+        <item
+            android:id="@+id/main_nav_sair"
+            android:icon="@drawable/ic_sign_out"
+            android:title="Sair">
+        </item>
+    </group>
+
+</menu>

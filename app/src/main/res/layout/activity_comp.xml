@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="#FFFFFF"
+    android:background="#f1f1f1"
     tools:context=".CompActivity">
 
     <android.support.design.widget.CoordinatorLayout

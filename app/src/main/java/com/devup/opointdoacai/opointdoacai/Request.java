@@ -8,6 +8,7 @@ public class Request {
     private String nome;
     private String endereco;
     private String total;
+    private String status;
     private List<Order> pedidos;
 
     public Request() {
@@ -19,6 +20,15 @@ public class Request {
         this.endereco = endereco;
         this.total = total;
         this.pedidos = pedidos;
+        this.status  = "0"; //Default é 0: 0 = Pedido, 1 = A Caminho, 2 = Entregue
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getTelefone() {

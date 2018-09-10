@@ -1,13 +1,19 @@
 package com.devup.opointdoacai.opointdoacai;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
@@ -23,8 +29,15 @@ import java.util.Map;
 import es.dmoral.toasty.Toasty;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.ms_square.etsyblur.BlurSupport;
+import com.mxn.soul.flowingdrawer_core.ElasticDrawer;
+import com.mxn.soul.flowingdrawer_core.FlowingDrawer;
 
 public class MainActivity extends AppCompatActivity {
+
+    //Variavel de Views
+    private android.support.v7.widget.Toolbar toolbar;
+
 
     //Authentication
     public static final int RC_SIGN_IN = 1;
@@ -34,16 +47,23 @@ public class MainActivity extends AppCompatActivity {
     //Firestore Backend
     private FirebaseFirestore mFirestore;
 
-    //Componetes
+    //Componetes Buttons Cards
     private Button btnAcai;
     private Button btnAcaiTop;
     private Button btnSucos;
     private Button btnVitaminas;
     private Button btnSaladaDeFrutas;
 
+    //Componentes Buttons Drawer
+    private RelativeLayout rlPedidos;
+    private RelativeLayout rlCarrinho;
+    private RelativeLayout rlSair;
+
+
     //Variáveis
     private String name;
     private  String phone;
+    private FlowingDrawer mDrawer;
 
     @Override
     protected void onStart() {
@@ -52,37 +72,109 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
 
-        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+        if (Common.isConnectedToInternet(getBaseContext())) {
 
-                FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+            mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+                @Override
+                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
-                if (currentUser != null){
+                    FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
-                }else{
+                    if (currentUser != null) {
 
-                    startActivityForResult(
-                            AuthUI.getInstance()
-                                    .createSignInIntentBuilder()
-                                    .setIsSmartLockEnabled(false)
-                                    .setAvailableProviders(Arrays.asList(
-                                            new AuthUI.IdpConfig.FacebookBuilder().build(),
-                                            new AuthUI.IdpConfig.PhoneBuilder().setDefaultNumber("br","").build()
-                                    ))
-                                    .setTheme(R.style.LoginTheme)
-                                    .setLogo(R.drawable.logo)
-                                    .build(),
-                            RC_SIGN_IN);
+                    } else {
+
+                        startActivityForResult(
+                                AuthUI.getInstance()
+                                        .createSignInIntentBuilder()
+                                        .setIsSmartLockEnabled(false)
+                                        .setAvailableProviders(Arrays.asList(
+                                                new AuthUI.IdpConfig.FacebookBuilder().build(),
+                                                new AuthUI.IdpConfig.PhoneBuilder().setDefaultNumber("br", "").build()
+                                        ))
+                                        .setTheme(R.style.LoginTheme)
+                                        .setLogo(R.drawable.logo)
+                                        .build(),
+                                RC_SIGN_IN);
+                    }
                 }
-            }
-        };
+            };
+        }else{
+            Toasty.error(getApplicationContext(), "Sem conexão com a Internet", Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Instanciando Componentes da Nav Drawer
+        rlSair = findViewById(R.id.out_acess);
+        rlPedidos = findViewById(R.id.order_acess);
+        rlCarrinho = findViewById(R.id.cart_acess);
+
+        rlCarrinho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mDrawer.closeMenu();
+                Intent intent = new Intent(MainActivity.this, Cart.class);
+                startActivity(intent);
+
+            }
+        });
+
+        rlPedidos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mDrawer.closeMenu();
+                Intent intent = new Intent(MainActivity.this, OrderStatus.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+        rlSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mAuth.signOut();
+                mDrawer.closeMenu();
+                finish();
+
+            }
+        });
+
+
+        //Toolbar - Instanciando
+        toolbar = findViewById(R.id.toolbar_id_main);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mDrawer.toggleMenu();
+
+            }
+        });
+
+        mDrawer = findViewById(R.id.drawerlayout);
+        mDrawer.setTouchMode(ElasticDrawer.TOUCH_MODE_BEZEL);
+        mDrawer.setOnDrawerStateChangeListener(new ElasticDrawer.OnDrawerStateChangeListener() {
+            @Override
+            public void onDrawerStateChange(int oldState, int newState) {          }
+
+            @Override
+            public void onDrawerSlide(float openRatio, int offsetPixels) {
+            }
+        });
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -133,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -202,5 +295,14 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth.addAuthStateListener(mAuthStateListener);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawer.isMenuVisible()) {
+            mDrawer.closeMenu();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

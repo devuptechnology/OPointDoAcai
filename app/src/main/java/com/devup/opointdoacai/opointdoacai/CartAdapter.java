@@ -3,6 +3,7 @@ package com.devup.opointdoacai.opointdoacai;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,28 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
-    public TextView txt_cart_nome, txt_cart_complementos, txt_cart_preco;
-
-    private ItemClickListener itemClickListener;
-
-    public void setTxt_cart_nome(TextView txt_cart_nome) {
-        this.txt_cart_nome = txt_cart_nome;
-    }
-
-    public CartViewHolder(View itemView) {
-        super(itemView);
-        this.txt_cart_nome = itemView.findViewById(R.id.cart_list_nome);
-        this.txt_cart_complementos = itemView.findViewById(R.id.cart_list_complementos);
-        this.txt_cart_preco = itemView.findViewById(R.id.cart_list_preco);
-    }
-
-    @Override
-    public void onClick(View v) {
-
-    }
-}
 
 public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
@@ -61,7 +40,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
         Locale locale = new Locale("PT","BR");
         NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
-//        float price = Float.parseFloat(listData.get(position).getPreco());
 
         holder.txt_cart_nome.setText(listData.get(position).getQuantidade());
         holder.txt_cart_complementos.setText(listData.get(position).getComplementos());
@@ -73,4 +51,26 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
     public int getItemCount() {
         return listData.size();
     }
+
+    public Order getItem(int position){
+
+        return listData.get(position);
+
+    }
+
+    public void removeItem(int posiion){
+
+        listData.remove(posiion);
+        notifyItemRemoved(posiion);
+
+    }
+
+    public void restoreItem(Order item, int posiion){
+
+        listData.add(posiion, item);
+        notifyItemInserted(posiion);
+
+    }
+
+
 }

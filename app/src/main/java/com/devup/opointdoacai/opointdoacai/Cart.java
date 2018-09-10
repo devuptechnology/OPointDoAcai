@@ -7,20 +7,24 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowInsets;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +34,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.protobuf.StringValue;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -39,13 +44,13 @@ import java.util.WeakHashMap;
 
 import es.dmoral.toasty.Toasty;
 
-public class Cart extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class Cart extends AppCompatActivity implements AdapterView.OnItemSelectedListener, RecyclerItemTouchHelperListener {
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
     FirebaseDatabase database;
-    DatabaseReference request;
+    DatabaseReference requests;
 
     TextView txtTotal;
     Button btnConfirmarPedido;
@@ -70,6 +75,8 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
 
     private Util util;
 
+    RelativeLayout rootLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +84,7 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
 
         //Firebase
         database = FirebaseDatabase.getInstance();
-        request = database.getReference("Pedidos");
+        requests = database.getReference("Pedidos");
         mAuth = FirebaseAuth.getInstance();
 
         //Init
@@ -86,28 +93,35 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        //Swipe to Delete
+        ItemTouchHelper.SimpleCallback itemTouchHelperCallBack = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
+        new ItemTouchHelper(itemTouchHelperCallBack).attachToRecyclerView(recyclerView);
+
         txtTotal = findViewById(R.id.total);
         btnConfirmarPedido = findViewById(R.id.btn_confirmar_pedido);
 
-        //loadListPedidos(total);
+        rootLayout = findViewById(R.id.rootLayout);
 
-        final float secTotal = loadListPedidos(total);
+        loadListPedidos(total);
 
         btnConfirmarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(secTotal == 0){
-
-                    Toasty.error(Cart.this, "Carrinho vazio", Toast.LENGTH_SHORT).show();
-
+                if (Common.isConnectedToInternet(getBaseContext())) {
+                    if (cart.size() > 0) {
+                        callDialogAdress();
+                    } else {
+                        Toasty.error(Cart.this, "Carrinho vazio", Toast.LENGTH_SHORT).show();
+                    }
                 }else{
 
-                    callDialogAdress();
+                Toasty.error(getApplicationContext(), "Sem conexão com a Internet", Toast.LENGTH_SHORT).show();
+                return;
 
                 }
 
             }
+
         });
 
 
@@ -184,43 +198,57 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
             @Override
             public void onClick(View v) {
 
+                if (Common.isConnectedToInternet(getBaseContext())) {
 
-                if(TextUtils.isEmpty(adressRua.getText()) || TextUtils.isEmpty(adressNum.getText()) || TextUtils.isEmpty(adressBairro.getText())){
+                    if (TextUtils.isEmpty(adressRua.getText()) || TextUtils.isEmpty(adressNum.getText()) || TextUtils.isEmpty(adressBairro.getText())) {
 
-                    Toasty.error(Cart.this, "Por favor, preencha com todos os dados", Toast.LENGTH_SHORT).show();
+                        Toasty.error(Cart.this, "Por favor, preencha com todos os dados", Toast.LENGTH_SHORT).show();
 
+                    } else {
+
+                        Toasty.success(Cart.this, "Pedido efetuado com Sucesso!", Toast.LENGTH_SHORT).show();
+
+                        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+
+                        String cep = etZipCode.getText().toString();
+                        String rua = adressRua.getText().toString();
+                        String num = adressNum.getText().toString();
+                        String bairro = adressBairro.getText().toString();
+
+
+                        String cidade = String.valueOf(spinnerCidade.getSelectedItem());
+                        String endereco = rua + ", " + num + ", " + bairro + ", " + cep + ", " + cidade + " - SP";
+
+                        Toasty.success(Cart.this, endereco, Toast.LENGTH_SHORT).show();
+
+                        //Crinado um novo Pedido
+                        Request request = new Request(
+                                firebaseUser.getPhoneNumber(),
+                                firebaseUser.getDisplayName(),
+                                endereco,
+                                txtTotal.getText().toString(),
+                                cart
+                        );
+
+                        //Enviando ao Firebase
+                        requests.child(String.valueOf(System.currentTimeMillis()))
+                                .setValue(request);
+
+                        //Esvaziando o carrinho
+                        new Database(getBaseContext()).cleanCart();
+
+                        //Enviando para a Atividade Principal
+                        Intent intent = new Intent(Cart.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+
+                    }
                 }else{
 
-                    new Database(getBaseContext()).cleanCart();
-
-                    Toasty.success(Cart.this, "Pedido efetuado com Sucesso!", Toast.LENGTH_SHORT).show();
-
-                    FirebaseUser firebaseUser = mAuth.getCurrentUser();
-
-                    String cep = etZipCode.getText().toString();
-                    String rua = adressRua.getText().toString();
-                    String num = adressNum.getText().toString();
-                    String bairro = adressBairro.getText().toString();
-
-
-                    String cidade = String.valueOf(spinnerCidade.getSelectedItem());
-                    String endereco = rua + ", " + num + ", " + bairro + ", " + cep + ", " + cidade + " - SP";
-
-                    Toasty.success(Cart.this, endereco, Toast.LENGTH_SHORT).show();
-                    //Request request = new Request(
-                            //firebaseUser.getPhoneNumber(),
-                            //firebaseUser.getDisplayName(),
-                           // endereco,
-                           // txtTotal.getText().toString(),
-                          //  cart
-                   // );
-
-                    //Intent intent = new Intent(Cart.this, Cart.class);
-                    //startActivity(intent);
+                    Toasty.error(getApplicationContext(), "Sem conexão com a Internet", Toast.LENGTH_SHORT).show();
+                    return;
 
                 }
-
-
             }
         });
 
@@ -294,11 +322,36 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
     }
 
     @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        if (item.getTitle().equals(Common.DELETE)){
+            deleteCart(item.getOrder());
+        }
+
+        return true;
+    }
+
+    private void deleteCart(int position) {
+
+        cart.remove(position);
+
+        new Database(this).cleanCart();
+
+        for (Order item:cart){
+            new Database(this).addToCart(item);
+        }
+
+        loadListPedidos(total);
+
+    }
+
+    @Override
     public void onBackPressed() {
         super.onBackPressed();
 
         Intent intent = new Intent(Cart.this, SizesActivity.class);
         startActivity(intent);
+        finish();
 
     }
 
@@ -312,5 +365,20 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {
+
+        if (viewHolder instanceof CartViewHolder) {
+
+            String name = ((CartAdapter) recyclerView.getAdapter()).getItem(viewHolder.getAdapterPosition()).getQuantidade();
+
+            final Order deleteItem = ((CartAdapter) recyclerView.getAdapter()).getItem(viewHolder.getAdapterPosition());
+            final int deleteIndex = viewHolder.getAdapterPosition();
+
+            adapter.removeItem(deleteIndex);
+
+        }
     }
 }
