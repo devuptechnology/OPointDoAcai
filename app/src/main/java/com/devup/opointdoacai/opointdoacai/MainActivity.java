@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
                     if (currentUser != null) {
 
+
+
                     } else {
 
                         startActivityForResult(
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                                                 new AuthUI.IdpConfig.PhoneBuilder().setDefaultNumber("br", "").build()
                                         ))
                                         .setTheme(R.style.LoginTheme)
-                                        .setLogo(R.drawable.logo)
+                                        .setLogo(R.drawable.img_logotype)
                                         .build(),
                                 RC_SIGN_IN);
                     }
@@ -223,6 +225,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnAcaiTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, PhoneAuth.class);
+                startActivity(intent);
+
+            }
+        });
+
 
     }
 
@@ -299,10 +311,5 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (mDrawer.isMenuVisible()) {
-            mDrawer.closeMenu();
-        } else {
-            super.onBackPressed();
-        }
     }
 }

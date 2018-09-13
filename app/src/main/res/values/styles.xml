@@ -16,13 +16,14 @@
 
     <style name="LoginTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Required for sign-in flow styling -->
-        <item name="colorPrimary">@color/material_500</item>
-        <item name="colorPrimaryDark">@color/material_700</item>
-        <item name="colorAccent">@color/material_a700b</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlNormal">@color/material_500</item>
         <item name="colorControlActivated">@color/material_a700</item>
         <item name="colorControlHighlight">@color/material_a200</item>
-        <item name="android:windowBackground">@drawable/bglogin</item>
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:fontFamily">@font/source_sans_pro</item>
         <item name="android:font" tools:targetApi="o">@font/source_sans_pro</item>
     </style>
 

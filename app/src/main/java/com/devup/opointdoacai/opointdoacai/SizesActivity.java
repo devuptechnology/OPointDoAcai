@@ -2,12 +2,14 @@ package com.devup.opointdoacai.opointdoacai;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -27,10 +29,26 @@ public class SizesActivity extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mOrderDatabaseReference;
 
+    private android.support.v7.widget.Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sizes);
+
+        //Toolbar - Instanciando
+        toolbar = findViewById(R.id.toolbar_id_sizes);
+        toolbar.setTitle("Escolha o Tamanho do Copo");
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+
+            }
+        });
 
         mFirebaseDatabase  = FirebaseDatabase.getInstance();
         mOrderDatabaseReference =  mFirebaseDatabase.getReference().child("pedidos");
@@ -135,8 +153,6 @@ public class SizesActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
     }
 
     private void animationsPlay() {

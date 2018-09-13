@@ -88,7 +88,7 @@
                             android:layout_width="150dp"
                             android:layout_height="138dp"
                             android:layout_margin="10dp"
-                            app:cardCornerRadius="5dp">
+                            app:cardCornerRadius="10dp">
 
 
                             <LinearLayout
@@ -117,9 +117,16 @@
 
                         <Button
                             android:id="@+id/btn_acai"
-                            android:layout_width="102dp"
+                            android:layout_width="120dp"
                             android:layout_height="28dp"
-                            android:background="@drawable/botao"
+                            android:background="@drawable/bgbtnselecionar"
+                            android:fontFamily="@font/source_sans_pro"
+                            android:text="Selecionar"
+                            android:textSize="14sp"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textStyle="normal"
+                            android:typeface="sans"
                             app:layout_anchor="@+id/card_view"
                             app:layout_anchorGravity="bottom|center" />
                     </android.support.design.widget.CoordinatorLayout>
@@ -136,7 +143,7 @@
                             android:layout_width="150dp"
                             android:layout_height="138dp"
                             android:layout_margin="10dp"
-                            app:cardCornerRadius="5dp">
+                            app:cardCornerRadius="10dp">
 
 
                             <LinearLayout
@@ -165,9 +172,16 @@
 
                         <Button
                             android:id="@+id/btn_acai_top"
-                            android:layout_width="102dp"
+                            android:layout_width="120dp"
                             android:layout_height="28dp"
-                            android:background="@drawable/botao"
+                            android:background="@drawable/bgbtnselecionar"
+                            android:fontFamily="@font/source_sans_pro"
+                            android:text="Selecionar"
+                            android:textSize="14sp"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textStyle="normal"
+                            android:typeface="sans"
                             app:layout_anchor="@+id/card_view2"
                             app:layout_anchorGravity="bottom|center" />
 
@@ -194,7 +208,7 @@
                             android:layout_width="150dp"
                             android:layout_height="138dp"
                             android:layout_margin="10dp"
-                            app:cardCornerRadius="5dp">
+                            app:cardCornerRadius="10dp">
 
 
                             <LinearLayout
@@ -223,9 +237,16 @@
 
                         <Button
                             android:id="@+id/btn_sucos"
-                            android:layout_width="102dp"
+                            android:layout_width="120dp"
                             android:layout_height="28dp"
-                            android:background="@drawable/botao"
+                            android:background="@drawable/bgbtnselecionar"
+                            android:fontFamily="@font/source_sans_pro"
+                            android:text="Selecionar"
+                            android:textSize="14sp"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textStyle="normal"
+                            android:typeface="sans"
                             app:layout_anchor="@+id/card_view3"
                             app:layout_anchorGravity="bottom|center" />
                     </android.support.design.widget.CoordinatorLayout>
@@ -242,7 +263,7 @@
                             android:layout_width="150dp"
                             android:layout_height="138dp"
                             android:layout_margin="10dp"
-                            app:cardCornerRadius="5dp">
+                            app:cardCornerRadius="10dp">
 
 
                             <LinearLayout
@@ -271,9 +292,16 @@
 
                         <Button
                             android:id="@+id/btn_vitaminas"
-                            android:layout_width="102dp"
+                            android:layout_width="120dp"
                             android:layout_height="28dp"
-                            android:background="@drawable/botao"
+                            android:background="@drawable/bgbtnselecionar"
+                            android:fontFamily="@font/source_sans_pro"
+                            android:text="Selecionar"
+                            android:textSize="14sp"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textStyle="normal"
+                            android:typeface="sans"
                             app:layout_anchor="@+id/card_view4"
                             app:layout_anchorGravity="bottom|center" />
 
@@ -300,7 +328,7 @@
                             android:layout_width="320dp"
                             android:layout_height="138dp"
                             android:layout_margin="10dp"
-                            app:cardCornerRadius="5dp">
+                            app:cardCornerRadius="10dp">
 
 
                             <LinearLayout
@@ -329,9 +357,16 @@
 
                         <Button
                             android:id="@+id/btn_saladadefrutas"
-                            android:layout_width="102dp"
+                            android:layout_width="200dp"
                             android:layout_height="28dp"
-                            android:background="@drawable/botao"
+                            android:background="@drawable/bgbtnconfirmar"
+                            android:fontFamily="@font/source_sans_pro"
+                            android:text="Selecionar"
+                            android:textSize="14sp"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textStyle="normal"
+                            android:typeface="sans"
                             app:layout_anchor="@+id/card_view6"
                             app:layout_anchorGravity="bottom|center" />
                     </android.support.design.widget.CoordinatorLayout>

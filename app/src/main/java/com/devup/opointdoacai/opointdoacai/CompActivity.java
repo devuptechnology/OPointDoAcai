@@ -51,10 +51,27 @@ public class CompActivity extends AppCompatActivity {
     TextView txtDialogComp;
     TextView txtDialogQnt;
 
+    private android.support.v7.widget.Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comp);
+
+        //Toolbar - Instanciando
+        toolbar = findViewById(R.id.toolbar_id_comp);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                valorqnt = 0.00f;
+                quantidade = "";
+                finish();
+
+            }
+        });
 
         //Instâncias
         cb_01 = findViewById(R.id.cb_01);cb_02 = findViewById(R.id.cb_02);cb_03 = findViewById(R.id.cb_03);
@@ -497,11 +514,5 @@ public class CompActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-
-        valorqnt = 0.00f;
-        quantidade = "";
-        finish();
-
     }
 }

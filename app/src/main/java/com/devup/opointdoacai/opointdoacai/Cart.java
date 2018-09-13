@@ -7,6 +7,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -77,10 +78,42 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
 
     RelativeLayout rootLayout;
 
+    private android.support.v7.widget.Toolbar toolbar;
+
+    private FloatingActionButton floatingActionButtonAdd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+
+        //Toolbar - Instanciando
+        toolbar = findViewById(R.id.toolbar_id_cart);
+        toolbar.setTitle("Carrinho");
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Cart.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+        floatingActionButtonAdd = findViewById(R.id.fab_cart_add);
+        floatingActionButtonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Cart.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
 
         //Firebase
         database = FirebaseDatabase.getInstance();
@@ -347,12 +380,6 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-
-        Intent intent = new Intent(Cart.this, SizesActivity.class);
-        startActivity(intent);
-        finish();
-
     }
 
     @Override

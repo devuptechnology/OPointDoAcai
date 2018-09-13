@@ -9,12 +9,51 @@
     android:id="@+id/rootLayout"
     android:background="#f1f1f1">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/list_cart"
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout_cart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/card_view_cartbtntotal"
-        android:background="@android:color/transparent"/>
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_id_cart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                app:navigationIcon="@drawable/ic_arrow_back_white_24dp">
+
+            </android.support.v7.widget.Toolbar>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_cart"
+                android:layout_below="@+id/toolbar_id_cart"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="45dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"/>
+
+        </RelativeLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_cart_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:backgroundTint="@color/colorAccent"
+            app:elevation="6dp"
+            app:layout_anchor="@+id/toolbar_id_cart"
+            app:layout_anchorGravity="end|bottom|right"
+            app:pressedTranslationZ="12dp"
+            app:srcCompat="@drawable/ic_add_white_24dp" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
 
     <RelativeLayout
         android:id="@+id/card_view_cartbtntotal"

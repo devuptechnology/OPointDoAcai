@@ -1,5 +1,6 @@
 package com.devup.opointdoacai.opointdoacai;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,10 +31,26 @@ public class OrderStatus extends AppCompatActivity {
 
     FirebaseRecyclerAdapter<Request, OrderViewHolder> adapter;
 
+    private android.support.v7.widget.Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_status);
+
+        //Toolbar - Instanciando
+        toolbar = findViewById(R.id.toolbar_id_orders);
+        toolbar.setTitle("Pedidos");
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+
+            }
+        });
 
         //Firebase
         database = FirebaseDatabase.getInstance();

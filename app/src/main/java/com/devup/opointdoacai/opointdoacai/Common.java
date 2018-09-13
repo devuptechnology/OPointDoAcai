@@ -8,6 +8,8 @@ public class Common {
 
     public static User currentUser;
 
+    public static String FLAGFIRSTINIT;
+
     public static String convertCodeToStatus(String status) {
 
         if (status.equals("0")){
