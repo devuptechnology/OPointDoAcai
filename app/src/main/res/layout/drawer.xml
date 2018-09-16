@@ -25,7 +25,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_home"
+            android:src="@drawable/home"
             android:layout_margin="10dp"/>
 
         <TextView
@@ -54,7 +54,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_shop_bag"
+            android:src="@drawable/supermarket_bag"
             android:layout_margin="10dp"/>
 
         <TextView
@@ -83,7 +83,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_shopping_cart"
+            android:src="@drawable/shopping_cart"
             android:layout_margin="10dp"/>
 
         <TextView
@@ -112,7 +112,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_gift_box"
+            android:src="@drawable/medal"
             android:layout_margin="10dp"/>
 
         <TextView
@@ -141,7 +141,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_sign_out"
+            android:src="@drawable/exit"
             android:layout_margin="10dp"/>
 
         <TextView

@@ -8,19 +8,39 @@ public class Request {
     private String nome;
     private String endereco;
     private String total;
+    private String paymentMethod;
+    private String troco;
     private String status;
     private List<Order> pedidos;
 
     public Request() {
     }
 
-    public Request(String telefone, String nome, String endereco, String total, List<Order> pedidos) {
+    public Request(String telefone, String nome, String endereco, String total, String paymentMethod, String troco, String status, List<Order> pedidos) {
         this.telefone = telefone;
         this.nome = nome;
         this.endereco = endereco;
         this.total = total;
+        this.paymentMethod = paymentMethod;
+        this.troco = troco;
+        this.status = status;
         this.pedidos = pedidos;
-        this.status  = "0"; //Default é 0: 0 = Pedido, 1 = A Caminho, 2 = Entregue
+    }
+
+    public String getTroco() {
+        return troco;
+    }
+
+    public void setTroco(String troco) {
+        this.troco = troco;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
     public String getStatus() {

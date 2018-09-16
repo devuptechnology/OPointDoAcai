@@ -180,7 +180,7 @@
                         app:cardElevation="5dp"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:backgroundTint="@color/colorPrimary"
                         android:layout_below="@+id/card_qnt_400"
                         android:layout_margin="10dp">
 

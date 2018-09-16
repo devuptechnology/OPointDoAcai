@@ -17,6 +17,15 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SizesActivity" />
+        <activity android:name=".CompActivity" />
+        <activity android:name=".Cart" />
+        <activity android:name=".OrderStatus" />
+        <activity android:name=".TopTen" />
+        <activity android:name=".Vitaminas" />
+        <activity
+            android:name=".PhoneAuth"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,16 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SizesActivity" />
-        <activity android:name=".CompActivity" />
-        <activity android:name=".Cart" />
-        <activity android:name=".OrderStatus" />
-        <activity android:name=".Login" />
-        <activity android:name=".TopTen" />
-        <activity android:name=".Vitaminas" />
-        <activity android:name=".PhoneAuth" />
-        <activity android:name=".Profile" />
-        <activity android:name=".Authentication"></activity>
+        <activity android:name=".Authentication" />
+        <activity android:name=".TopSizes" />
+        <activity android:name=".Sucos" />
+        <activity android:name=".SaladaFrutas"></activity>
     </application>
 
 </manifest>

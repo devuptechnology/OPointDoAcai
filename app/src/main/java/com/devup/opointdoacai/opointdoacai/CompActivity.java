@@ -437,8 +437,6 @@ public class CompActivity extends AppCompatActivity {
                 String vTotal = fmt.format(total);
                 valorTotal = vTotal;
 
-                //Toasty.success(CompActivity.this, valor , Toast.LENGTH_SHORT).show();
-
                 ConfirmOrCancelDialog(valorTotal, stringNew, quantidade);
 
                 total = 0.00f;

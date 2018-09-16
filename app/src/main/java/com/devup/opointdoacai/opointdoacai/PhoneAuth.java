@@ -11,9 +11,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import es.dmoral.toasty.Toasty;
 
 public class PhoneAuth extends AppCompatActivity {
 
@@ -24,11 +27,18 @@ public class PhoneAuth extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            startActivity(new Intent(PhoneAuth.this, Profile.class));
-            finish();
+
+        if (Common.isConnectedToInternet(getBaseContext())) {
+
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            if (currentUser != null) {
+                startActivity(new Intent(PhoneAuth.this, MainActivity.class));
+                finish();
+            }
+
+        }else{
+            Toasty.error(getApplicationContext(), "Sem conexão com a Internet", Toast.LENGTH_SHORT).show();
+            return;
         }
     }
 
@@ -55,5 +65,11 @@ public class PhoneAuth extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+        System.exit(0);
     }
 }

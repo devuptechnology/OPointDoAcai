@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1"
+    tools:context=".SaladaFrutas">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_id_salada_frutas"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        app:navigationIcon="@drawable/ic_arrow_back_white_24dp">
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_below="@+id/toolbar_id_salada_frutas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_salada_frutas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            app:cardElevation="4dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+
+                <TextView
+                    android:id="@+id/txt_salada_frutas"
+                    android:text="Salada de Frutas"
+                    android:textSize="22sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="0dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/source_sans_pro"/>
+
+                <TextView
+                    android:id="@+id/txt_salada_frutas_comp"
+                    android:text="Composição:"
+                    android:layout_below="@+id/txt_salada_frutas"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="1dp"
+                    android:textColor="@color/colorSecondaryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/source_sans_pro"/>
+
+                <TextView
+                    android:id="@+id/txt_salada_frutas_preco"
+                    android:text="R$ 10,00"
+                    android:textSize="20sp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/source_sans_pro"/>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/txt_salada_frutas_select"
+            android:text="Selecione uma cobertura"
+            android:layout_below="@+id/cv_salada_frutas"
+            android:textSize="22sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro"/>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cobertura_01"
+            android:layout_below="@+id/txt_salada_frutas_select"
+            android:layout_width="320dp"
+            android:layout_height="55dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_margin="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp">
+
+                <ImageView
+                    android:id="@+id/img_cobertura_01"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/iconsaladadefrutas"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/txt_cobertura_01"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="Suco de Laranja"
+                    android:layout_toRightOf="@+id/img_cobertura_01"
+                    android:textSize="16sp"/>
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cobertura_02"
+            android:layout_below="@+id/cobertura_01"
+            android:layout_width="320dp"
+            android:layout_height="55dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_margin="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp">
+
+                <ImageView
+                    android:id="@+id/img_cobertura_02"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/iconsaladadefrutas"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/txt_cobertura_02"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="Leite Condensado"
+                    android:layout_toRightOf="@+id/img_cobertura_02"
+                    android:textSize="16sp"/>
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cobertura_03"
+            android:layout_below="@+id/cobertura_02"
+            android:layout_width="320dp"
+            android:layout_height="55dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_margin="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp">
+
+                <ImageView
+                    android:id="@+id/img_cobertura_03"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/iconsaladadefrutas"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/txt_cobertura_03"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="Iorgute"
+                    android:layout_toRightOf="@+id/img_cobertura_03"
+                    android:textSize="16sp"/>
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cobertura_04"
+            android:layout_below="@+id/cobertura_03"
+            android:layout_width="320dp"
+            android:layout_height="55dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_margin="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp">
+
+                <ImageView
+                    android:id="@+id/img_cobertura_04"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/iconsaladadefrutas"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/txt_cobertura_04"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="Mel"
+                    android:layout_toRightOf="@+id/img_cobertura_04"
+                    android:textSize="16sp"/>
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

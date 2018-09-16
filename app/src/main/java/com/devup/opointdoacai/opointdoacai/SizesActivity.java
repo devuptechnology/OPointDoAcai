@@ -26,9 +26,6 @@ public class SizesActivity extends AppCompatActivity {
     private float valorqnt = 0.00f;
     private String quantidade = "";
 
-    private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference mOrderDatabaseReference;
-
     private android.support.v7.widget.Toolbar toolbar;
 
     @Override
@@ -49,9 +46,6 @@ public class SizesActivity extends AppCompatActivity {
 
             }
         });
-
-        mFirebaseDatabase  = FirebaseDatabase.getInstance();
-        mOrderDatabaseReference =  mFirebaseDatabase.getReference().child("pedidos");
 
         //Setando Orientação de Retrato
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

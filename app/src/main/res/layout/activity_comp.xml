@@ -25,7 +25,7 @@
             android:id="@+id/collapsing_toolbar_comp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/path"
+            android:background="@drawable/colapsing_header_comp"
             app:contentScrim="?attr/colorPrimaryDark"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"

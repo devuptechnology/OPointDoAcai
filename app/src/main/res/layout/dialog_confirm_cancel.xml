@@ -90,7 +90,12 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/btndialogconfirmar"
+                android:text="Confirmar"
+                android:fontFamily="@font/source_sans_pro"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:background="@drawable/button_main_background"
                 android:elevation="5dp"/>
 
             <Button
@@ -99,7 +104,12 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/btndialogvoltar"
+                android:text="Cancelar"
+                android:fontFamily="@font/source_sans_pro"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:background="@drawable/button_main_background"
                 android:elevation="5dp"/>
 
         </LinearLayout>

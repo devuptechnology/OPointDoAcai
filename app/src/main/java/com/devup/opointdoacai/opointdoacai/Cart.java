@@ -25,6 +25,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -39,6 +40,7 @@ import com.google.protobuf.StringValue;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.WeakHashMap;
@@ -142,7 +144,47 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
             public void onClick(View v) {
                 if (Common.isConnectedToInternet(getBaseContext())) {
                     if (cart.size() > 0) {
-                        callDialogAdress();
+
+                        Calendar now = Calendar.getInstance();
+                        int sem = now.get(Calendar.DAY_OF_WEEK);
+                        int hour = now.get(Calendar.HOUR_OF_DAY);
+                        int minute = now.get(Calendar.MINUTE);
+
+                        if (sem == 2){
+
+                            Toasty.error(Cart.this, "Não abrimos às Segunda-feiras", Toast.LENGTH_SHORT).show();
+
+                        }else{
+
+                            if ((hour < 14) && (hour > 0)){
+
+                                int hora = 13 - hour;
+                                int minutos = 60 - minute;
+
+                                if (hora == 0){
+
+                                    Toasty.error(Cart.this, "Abriremos dentro de " + minutos + " minuto(s)", Toast.LENGTH_SHORT).show();
+
+
+                                }else{
+
+                                    Toasty.error(Cart.this, "Abriremos dentro de " + hora + " hora(s) e " + minutos + " minuto(s)", Toast.LENGTH_SHORT).show();
+
+
+                                }
+
+
+                            }else if ((hour >= 21) && (hour < 24)){
+
+                                Toasty.error(Cart.this, "Já encerramos por hoje", Toast.LENGTH_SHORT).show();
+
+                            }else{
+
+                                callDialogAdress();
+
+                            }
+
+                        }
                     } else {
                         Toasty.error(Cart.this, "Carrinho vazio", Toast.LENGTH_SHORT).show();
                     }
@@ -178,6 +220,10 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
         adressBairro = adressDialog.findViewById(R.id.edt_bairro);
         etZipCode = adressDialog.findViewById(R.id.edt_cep);
         spinnerCidade = adressDialog.findViewById(R.id.spinner_cidade);
+
+        final RadioButton rdiCOD = adressDialog.findViewById(R.id.rdiCOD);
+        final RadioButton rdiCard = adressDialog.findViewById(R.id.rdiCard);
+        final RadioButton rdiCardCOD = adressDialog.findViewById(R.id.rdiCardCOD);
 
         etZipCode.addTextChangedListener(new TextWatcher() {
             @Override
@@ -231,6 +277,17 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
             @Override
             public void onClick(View v) {
 
+                FirebaseUser firebaseUser = mAuth.getCurrentUser();
+
+                String cep = etZipCode.getText().toString();
+                String rua = adressRua.getText().toString();
+                String num = adressNum.getText().toString();
+                String bairro = adressBairro.getText().toString();
+
+
+                String cidade = String.valueOf(spinnerCidade.getSelectedItem());
+                String endereco = rua + ", " + num + ", " + bairro + ", " + cep + ", " + cidade + " - SP";
+
                 if (Common.isConnectedToInternet(getBaseContext())) {
 
                     if (TextUtils.isEmpty(adressRua.getText()) || TextUtils.isEmpty(adressNum.getText()) || TextUtils.isEmpty(adressBairro.getText())) {
@@ -239,42 +296,94 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemSelecte
 
                     } else {
 
-                        Toasty.success(Cart.this, "Pedido efetuado com Sucesso!", Toast.LENGTH_SHORT).show();
+                        //Checando método de pagamento
 
-                        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                        if (!rdiCard.isChecked() && !rdiCardCOD.isChecked() && !rdiCOD.isChecked()){
 
-                        String cep = etZipCode.getText().toString();
-                        String rua = adressRua.getText().toString();
-                        String num = adressNum.getText().toString();
-                        String bairro = adressBairro.getText().toString();
+                            Toasty.error(Cart.this, "Selecione uma opção de pagamento", Toast.LENGTH_SHORT).show();
 
+                        }else if (rdiCard.isChecked()){
 
-                        String cidade = String.valueOf(spinnerCidade.getSelectedItem());
-                        String endereco = rua + ", " + num + ", " + bairro + ", " + cep + ", " + cidade + " - SP";
+                            Request request = new Request(
+                                    firebaseUser.getPhoneNumber(),
+                                    firebaseUser.getDisplayName(),
+                                    endereco,
+                                    txtTotal.getText().toString(),
+                                    "Cartão",
+                                    "0",
+                                    "0",
+                                    cart
+                            );
 
-                        Toasty.success(Cart.this, endereco, Toast.LENGTH_SHORT).show();
+                            //Enviando ao Firebase
+                            requests.child(String.valueOf(System.currentTimeMillis()))
+                                    .setValue(request);
 
-                        //Crinado um novo Pedido
-                        Request request = new Request(
-                                firebaseUser.getPhoneNumber(),
-                                firebaseUser.getDisplayName(),
-                                endereco,
-                                txtTotal.getText().toString(),
-                                cart
-                        );
+                            //Esvaziando o carrinho
+                            new Database(getBaseContext()).cleanCart();
 
-                        //Enviando ao Firebase
-                        requests.child(String.valueOf(System.currentTimeMillis()))
-                                .setValue(request);
+                            Toasty.success(Cart.this, "Pedido efetuado com Sucesso!", Toast.LENGTH_SHORT).show();
 
-                        //Esvaziando o carrinho
-                        new Database(getBaseContext()).cleanCart();
+                            //Enviando para a Atividade Principal
+                            Intent intent = new Intent(Cart.this, OrderStatus.class);
+                            startActivity(intent);
+                            finish();
 
-                        //Enviando para a Atividade Principal
-                        Intent intent = new Intent(Cart.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
+                        }else if (rdiCOD.isChecked()){
 
+                            Request request = new Request(
+                                    firebaseUser.getPhoneNumber(),
+                                    firebaseUser.getDisplayName(),
+                                    endereco,
+                                    txtTotal.getText().toString(),
+                                    "Dinheiro",
+                                    "0",
+                                    "0",
+                                    cart
+                            );
+
+                            //Enviando ao Firebase
+                            requests.child(String.valueOf(System.currentTimeMillis()))
+                                    .setValue(request);
+
+                            //Esvaziando o carrinho
+                            new Database(getBaseContext()).cleanCart();
+
+                            Toasty.success(Cart.this, "Pedido efetuado com Sucesso!", Toast.LENGTH_SHORT).show();
+
+                            //Enviando para a Atividade Principal
+                            Intent intent = new Intent(Cart.this, OrderStatus.class);
+                            startActivity(intent);
+                            finish();
+
+                        }else if (rdiCardCOD.isChecked()){
+
+                            Request request = new Request(
+                                    firebaseUser.getPhoneNumber(),
+                                    firebaseUser.getDisplayName(),
+                                    endereco,
+                                    txtTotal.getText().toString(),
+                                    "Dinheiro e Cartão",
+                                    "0",
+                                    "0",
+                                    cart
+                            );
+
+                            //Enviando ao Firebase
+                            requests.child(String.valueOf(System.currentTimeMillis()))
+                                    .setValue(request);
+
+                            //Esvaziando o carrinho
+                            new Database(getBaseContext()).cleanCart();
+
+                            Toasty.success(Cart.this, "Pedido efetuado com Sucesso!", Toast.LENGTH_SHORT).show();
+
+                            //Enviando para a Atividade Principal
+                            Intent intent = new Intent(Cart.this, OrderStatus.class);
+                            startActivity(intent);
+                            finish();
+
+                        }
                     }
                 }else{
 

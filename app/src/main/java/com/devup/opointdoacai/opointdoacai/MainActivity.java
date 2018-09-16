@@ -19,16 +19,19 @@ import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 import es.dmoral.toasty.Toasty;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.ms_square.etsyblur.BlurSupport;
 import com.mxn.soul.flowingdrawer_core.ElasticDrawer;
 import com.mxn.soul.flowingdrawer_core.FlowingDrawer;
@@ -55,9 +58,11 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSaladaDeFrutas;
 
     //Componentes Buttons Drawer
+    private RelativeLayout rlHome;
     private RelativeLayout rlPedidos;
     private RelativeLayout rlCarrinho;
     private RelativeLayout rlSair;
+    private RelativeLayout rlFidelidade;
 
 
     //Variáveis
@@ -82,25 +87,24 @@ public class MainActivity extends AppCompatActivity {
 
                     if (currentUser != null) {
 
+                        final String user_id = mAuth.getCurrentUser().getUid();
+                        String token_id = FirebaseInstanceId.getInstance().getToken();
+
+                        Map<String, Object> userMap = new HashMap<>();
+                        userMap.put("token_id", token_id);
+
+                        mFirestore.collection("Users").document(user_id).update(userMap);
 
 
                     } else {
-
-                        startActivityForResult(
-                                AuthUI.getInstance()
-                                        .createSignInIntentBuilder()
-                                        .setIsSmartLockEnabled(false)
-                                        .setAvailableProviders(Arrays.asList(
-                                                new AuthUI.IdpConfig.FacebookBuilder().build(),
-                                                new AuthUI.IdpConfig.PhoneBuilder().setDefaultNumber("br", "").build()
-                                        ))
-                                        .setTheme(R.style.LoginTheme)
-                                        .setLogo(R.drawable.img_logotype)
-                                        .build(),
-                                RC_SIGN_IN);
+                        Intent intent = new Intent(MainActivity.this, PhoneAuth.class);
+                        startActivity(intent);
+                        finish();
                     }
+
                 }
             };
+
         }else{
             Toasty.error(getApplicationContext(), "Sem conexão com a Internet", Toast.LENGTH_SHORT).show();
             return;
@@ -113,9 +117,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Instanciando Componentes da Nav Drawer
+        rlHome = findViewById(R.id.home_acess);
         rlSair = findViewById(R.id.out_acess);
         rlPedidos = findViewById(R.id.order_acess);
         rlCarrinho = findViewById(R.id.cart_acess);
+        rlFidelidade = findViewById(R.id.fide_acess);
+
+        rlFidelidade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toasty.success(MainActivity.this, "Ainda em construção", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        rlHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mDrawer.closeMenu();
+
+            }
+        });
 
         rlCarrinho.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -229,9 +253,39 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, PhoneAuth.class);
+                Intent intent = new Intent(MainActivity.this, TopTen.class);
                 startActivity(intent);
 
+            }
+        });
+
+        btnVitaminas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, Vitaminas.class);
+                startActivity(intent);
+
+            }
+        });
+
+        btnSucos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, Sucos.class);
+                startActivity(intent);
+
+            }
+        });
+
+        btnSaladaDeFrutas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(MainActivity.this, SaladaFrutas.class);
+                startActivity(intent);
             }
         });
 
@@ -312,4 +366,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
     }
+
 }

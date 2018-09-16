@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TopSizes"
+    android:background="#f1f1f1">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_id_top_sizes"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        app:navigationIcon="@drawable/ic_arrow_back_white_24dp">
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:id="@+id/layout_of_card_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar_id_top_sizes"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_selected_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="40dp"
+            app:cardElevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/txt_selected_option"
+                    android:text="Opção Selecionada"
+                    android:textSize="22sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/colorSecondaryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/source_sans_pro"/>
+
+                <TextView
+                    android:id="@+id/txt_selected_top_number"
+                    android:text="00"
+                    android:textSize="30sp"
+                    android:layout_below="@+id/txt_selected_option"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/source_sans_pro"/>
+
+                <TextView
+                    android:id="@+id/txt_top_name_selected"
+                    android:text="Carregando..."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_below="@id/txt_selected_option"
+                    android:layout_toRightOf="@+id/txt_selected_top_number"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/source_sans_pro"/>
+
+                <TextView
+                    android:id="@+id/txt_top_complementos_selected"
+                    android:text="Carregando..."
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_below="@+id/txt_top_name_selected"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorSecondaryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/source_sans_pro"/>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/txt_selecione_copo"
+            android:text="Selecione o tamanho do copo abaixo"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_below="@+id/cv_selected_options"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro"/>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/qnt_300"
+            android:layout_below="@+id/txt_selecione_copo"
+            android:layout_width="320dp"
+            android:layout_height="55dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_margin="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp">
+
+                <ImageView
+                    android:id="@+id/image_300"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/iconacai"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/qnt_300ml"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="300 ml"
+                    android:layout_toRightOf="@+id/image_300"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/preco_300"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="Carregando..."
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/qnt_500"
+            android:layout_width="320dp"
+            android:layout_height="55dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:layout_below="@+id/qnt_300"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_margin="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp">
+
+                <ImageView
+                    android:id="@+id/image_500"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/iconacai"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/qnt_500ml"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="500 ml"
+                    android:layout_toRightOf="@+id/image_500"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/preco_500"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="Carregando..."
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/qnt_700"
+            android:layout_width="320dp"
+            android:layout_height="55dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:layout_below="@+id/qnt_500"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_margin="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp">
+
+                <ImageView
+                    android:id="@+id/image_700"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/iconacai"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/qnt_700ml"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="700 ml"
+                    android:layout_toRightOf="@+id/image_700"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/preco_700"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="Carregando..."
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

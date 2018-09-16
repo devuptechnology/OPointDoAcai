@@ -37,7 +37,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -83,61 +85,6 @@
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/source_sans_pro"/>
 
-                    <TextView
-                        android:id="@+id/txt_top_precos_01"
-                        android:text="Tamanhos e Preços"
-                        android:layout_below="@+id/txt_top_complementos_01"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"/>
-
-                    <RadioGroup
-                        android:id="@+id/radio_group_top_01"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_top_precos_01"
-                        android:gravity="right"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="5dp">
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_01_300ml"
-                            android:text="300 ml            R$ 11,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_01_500ml"
-                            android:text="500 ml            R$ 13,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_01_700ml"
-                            android:text="700 ml            R$ 16,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </RadioGroup>
-
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -151,7 +98,9 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -197,61 +146,6 @@
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/source_sans_pro"/>
 
-                    <TextView
-                        android:id="@+id/txt_top_precos_02"
-                        android:text="Tamanhos e Preços"
-                        android:layout_below="@+id/txt_top_complementos_02"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"/>
-
-                    <RadioGroup
-                        android:id="@+id/radio_group_top"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_top_precos_02"
-                        android:gravity="right"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="5dp">
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_02_300ml"
-                            android:text="300 ml            R$ 13,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_02_500ml"
-                            android:text="500 ml            R$ 15,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_02_700ml"
-                            android:text="700 ml            R$ 18,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </RadioGroup>
-
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -265,7 +159,9 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -311,61 +207,6 @@
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/source_sans_pro"/>
 
-                    <TextView
-                        android:id="@+id/txt_top_precos_03"
-                        android:text="Tamanhos e Preços"
-                        android:layout_below="@+id/txt_top_complementos_03"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"/>
-
-                    <RadioGroup
-                        android:id="@+id/radio_group_top_03"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_top_precos_03"
-                        android:gravity="right"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="5dp">
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_03_300ml"
-                            android:text="300 ml            R$ 14,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_03_500ml"
-                            android:text="500 ml            R$ 16,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_03_700ml"
-                            android:text="700 ml            R$ 19,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </RadioGroup>
-
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -379,7 +220,9 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -425,61 +268,6 @@
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/source_sans_pro"/>
 
-                    <TextView
-                        android:id="@+id/txt_top_precos_04"
-                        android:text="Tamanhos e Preços"
-                        android:layout_below="@+id/txt_top_complementos_04"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"/>
-
-                    <RadioGroup
-                        android:id="@+id/radio_group_top_04"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_top_precos_04"
-                        android:gravity="right"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="5dp">
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_04_300ml"
-                            android:text="300 ml            R$ 11,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_04_500ml"
-                            android:text="500 ml            R$ 13,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_04_700ml"
-                            android:text="700 ml            R$ 16,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </RadioGroup>
-
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -493,7 +281,9 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -539,61 +329,6 @@
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/source_sans_pro"/>
 
-                    <TextView
-                        android:id="@+id/txt_top_precos_05"
-                        android:text="Tamanhos e Preços"
-                        android:layout_below="@+id/txt_top_complementos_05"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"/>
-
-                    <RadioGroup
-                        android:id="@+id/radio_group_top_05"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_top_precos_05"
-                        android:gravity="right"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="5dp">
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_05_300ml"
-                            android:text="300 ml            R$ 10,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_05_500ml"
-                            android:text="500 ml            R$ 12,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_05_700ml"
-                            android:text="700 ml            R$ 15,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </RadioGroup>
-
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -607,7 +342,9 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -653,61 +390,6 @@
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/source_sans_pro"/>
 
-                    <TextView
-                        android:id="@+id/txt_top_precos_06"
-                        android:text="Tamanhos e Preços"
-                        android:layout_below="@+id/txt_top_complementos_06"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"/>
-
-                    <RadioGroup
-                        android:id="@+id/radio_group_top_06"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_top_precos_06"
-                        android:gravity="right"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="5dp">
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_06_300ml"
-                            android:text="300 ml            R$ 9,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_06_500ml"
-                            android:text="500 ml            R$ 11,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_06_700ml"
-                            android:text="700 ml            R$ 14,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </RadioGroup>
-
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -721,7 +403,9 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -767,61 +451,6 @@
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/source_sans_pro"/>
 
-                    <TextView
-                        android:id="@+id/txt_top_precos_07"
-                        android:text="Tamanhos e Preços"
-                        android:layout_below="@+id/txt_top_complementos_07"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"/>
-
-                    <RadioGroup
-                        android:id="@+id/radio_group_top_07"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_top_precos_07"
-                        android:gravity="right"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="5dp">
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_07_300ml"
-                            android:text="300 ml            R$ 11,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_07_500ml"
-                            android:text="500 ml            R$ 13,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_07_700ml"
-                            android:text="700 ml            R$ 16,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </RadioGroup>
-
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -835,7 +464,9 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -881,61 +512,6 @@
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/source_sans_pro"/>
 
-                    <TextView
-                        android:id="@+id/txt_top_precos_08"
-                        android:text="Tamanhos e Preços"
-                        android:layout_below="@+id/txt_top_complementos_08"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"/>
-
-                    <RadioGroup
-                        android:id="@+id/radio_group_top_08"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_top_precos_08"
-                        android:gravity="right"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="5dp">
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_08_300ml"
-                            android:text="300 ml            R$ 13,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_08_500ml"
-                            android:text="500 ml            R$ 15,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_08_700ml"
-                            android:text="700 ml            R$ 18,00"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </RadioGroup>
-
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -949,7 +525,9 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -995,61 +573,6 @@
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/source_sans_pro"/>
 
-                    <TextView
-                        android:id="@+id/txt_top_precos_09"
-                        android:text="Tamanhos e Preços"
-                        android:layout_below="@+id/txt_top_complementos_09"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"/>
-
-                    <RadioGroup
-                        android:id="@+id/radio_group_top_09"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_top_precos_09"
-                        android:gravity="right"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="5dp">
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_09_300ml"
-                            android:text="300 ml            R$ 11,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_09_500ml"
-                            android:text="500 ml            R$ 13,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_09_700ml"
-                            android:text="700 ml            R$ 16,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </RadioGroup>
-
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -1064,7 +587,9 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="16dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -1109,61 +634,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/source_sans_pro"/>
-
-                    <TextView
-                        android:id="@+id/txt_top_precos_10"
-                        android:text="Tamanhos e Preços"
-                        android:layout_below="@+id/txt_top_complementos_10"
-                        android:textSize="20sp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"/>
-
-                    <RadioGroup
-                        android:id="@+id/radio_group_top_10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_top_precos_10"
-                        android:gravity="right"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="5dp">
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_10_300ml"
-                            android:text="300 ml            R$ 10,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_10_500ml"
-                            android:text="500 ml            R$ 12,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <RadioButton
-                            android:id="@+id/rdbtn_10_700ml"
-                            android:text="700 ml            R$ 15,50"
-                            android:textSize="16dp"
-                            android:layout_margin="2dp"
-                            android:textColor="@color/colorSecondaryText"
-                            android:fontFamily="@font/source_sans_pro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </RadioGroup>
 
                 </RelativeLayout>
 

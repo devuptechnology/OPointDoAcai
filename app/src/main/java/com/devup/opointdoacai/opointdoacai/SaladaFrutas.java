@@ -13,11 +13,11 @@ import com.devup.opointdoacai.opointdoacai.Database.Database;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class Vitaminas extends AppCompatActivity {
+public class SaladaFrutas extends AppCompatActivity {
+
+    private CardView cvs1, cvs2, cvs3, cvs4;
 
     private android.support.v7.widget.Toolbar toolbar;
-
-    private CardView cvVita01, cvVita02, cvVita03, cvVita04, cvVita05;
 
     private float valorIndividual = 0.00f;
     private String valor = "";
@@ -27,14 +27,14 @@ public class Vitaminas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vitaminas);
+        setContentView(R.layout.activity_salada_frutas);
 
         //Setando Orientação de Retrato
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Toolbar - Instanciando
-        toolbar = findViewById(R.id.toolbar_id_vitaminas);
-        toolbar.setTitle("Vitaminas");
+        toolbar = findViewById(R.id.toolbar_id_salada_frutas);
+        toolbar.setTitle("Salada de Frutas");
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -49,18 +49,18 @@ public class Vitaminas extends AppCompatActivity {
             }
         });
 
-        //Instanciando CardViews
-        cvVita01 = findViewById(R.id.cv_vitaminas_01);cvVita02 = findViewById(R.id.cv_vitaminas_02);
-        cvVita03 = findViewById(R.id.cv_vitaminas_03);cvVita04 = findViewById(R.id.cv_vitaminas_04);
-        cvVita05 = findViewById(R.id.cv_vitaminas_05);
+        cvs1 = findViewById(R.id.cobertura_01);
+        cvs2 = findViewById(R.id.cobertura_02);
+        cvs3 = findViewById(R.id.cobertura_03);
+        cvs4 = findViewById(R.id.cobertura_04);
 
-        cvVita01.setOnClickListener(new View.OnClickListener() {
+        cvs1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                valorIndividual = 07.50f;
-                quantidade = "Vitamina";
-                complementos = "Côco com Sonho de Valsa";
+                valorIndividual = 10.00f;
+                quantidade = "Salada de Frutas";
+                complementos = "Cobertura de Suco de Laranja";
 
                 Locale locale = new Locale("PT","BR");
                 NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
@@ -73,19 +73,19 @@ public class Vitaminas extends AppCompatActivity {
                         valor
                 ));
 
-                Intent intent = new Intent(Vitaminas.this, Cart.class);
+                Intent intent = new Intent(SaladaFrutas.this, Cart.class);
                 startActivity(intent);
 
             }
         });
 
-        cvVita02.setOnClickListener(new View.OnClickListener() {
+        cvs2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                valorIndividual = 07.50f;
-                quantidade = "Vitamina";
-                complementos = "Limonada Suíça";
+                valorIndividual = 10.00f;
+                quantidade = "Salada de Frutas";
+                complementos = "Cobertura de Leite Condensado";
 
                 Locale locale = new Locale("PT","BR");
                 NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
@@ -98,19 +98,19 @@ public class Vitaminas extends AppCompatActivity {
                         valor
                 ));
 
-                Intent intent = new Intent(Vitaminas.this, Cart.class);
+                Intent intent = new Intent(SaladaFrutas.this, Cart.class);
                 startActivity(intent);
 
             }
         });
 
-        cvVita03.setOnClickListener(new View.OnClickListener() {
+        cvs3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                valorIndividual = 07.50f;
-                quantidade = "Vitamina";
-                complementos = "Morango com Ninho";
+                valorIndividual = 10.00f;
+                quantidade = "Salada de Frutas";
+                complementos = "Cobertura de Iorgute";
 
                 Locale locale = new Locale("PT","BR");
                 NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
@@ -123,19 +123,19 @@ public class Vitaminas extends AppCompatActivity {
                         valor
                 ));
 
-                Intent intent = new Intent(Vitaminas.this, Cart.class);
+                Intent intent = new Intent(SaladaFrutas.this, Cart.class);
                 startActivity(intent);
 
             }
         });
 
-        cvVita04.setOnClickListener(new View.OnClickListener() {
+        cvs4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                valorIndividual = 07.50f;
-                quantidade = "Vitamina";
-                complementos = "Vitamina de Açaí do Point";
+                valorIndividual = 10.00f;
+                quantidade = "Salada de Frutas";
+                complementos = "Cobertura de Mel";
 
                 Locale locale = new Locale("PT","BR");
                 NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
@@ -148,32 +148,7 @@ public class Vitaminas extends AppCompatActivity {
                         valor
                 ));
 
-                Intent intent = new Intent(Vitaminas.this, Cart.class);
-                startActivity(intent);
-
-            }
-        });
-
-        cvVita05.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                valorIndividual = 08.00f;
-                quantidade = "Vitamina";
-                complementos = "Sensação";
-
-                Locale locale = new Locale("PT","BR");
-                NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
-
-                valor = fmt.format(valorIndividual);
-
-                new Database(getBaseContext()).addToCart(new Order(
-                        quantidade,
-                        complementos,
-                        valor
-                ));
-
-                Intent intent = new Intent(Vitaminas.this, Cart.class);
+                Intent intent = new Intent(SaladaFrutas.this, Cart.class);
                 startActivity(intent);
 
             }

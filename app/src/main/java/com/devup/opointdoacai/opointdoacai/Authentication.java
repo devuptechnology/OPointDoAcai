@@ -1,5 +1,8 @@
 package com.devup.opointdoacai.opointdoacai;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -21,6 +24,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +32,7 @@ import com.chaos.view.PinView;
 
 import com.chaos.view.PinView;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
@@ -37,14 +42,22 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.shuhart.stepview.StepView;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import es.dmoral.toasty.Toasty;
 
 public class Authentication extends AppCompatActivity {
 
     private int currentStep = 0;
-    LinearLayout layout1,layout2,layout3;
+    LinearLayout layout1,layout2;
+    RelativeLayout layout3;
     StepView stepView;
     AlertDialog dialog_verifying,profile_dialog;
 
@@ -67,11 +80,14 @@ public class Authentication extends AppCompatActivity {
     private PinView verifyCodeET;
     private TextView phonenumberText;
 
+    private EditText nomeAuth;
+
     private String mVerificationId;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
 
 
     private FirebaseAuth mAuth;
+    private FirebaseFirestore mFirestore;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -80,6 +96,7 @@ public class Authentication extends AppCompatActivity {
         setContentView(R.layout.activity_authentication);
 
         mAuth = FirebaseAuth.getInstance();
+        mFirestore = FirebaseFirestore.getInstance();
 
         layout1 = findViewById(R.id.layout1);
         layout2 = findViewById(R.id.layout2);
@@ -91,6 +108,7 @@ public class Authentication extends AppCompatActivity {
         phoneNum = findViewById(R.id.phonenumber);
         verifyCodeET = findViewById(R.id.pinView);
         phonenumberText = findViewById(R.id.phonenumberText);
+        nomeAuth = findViewById(R.id.edt_nome_auth);
 
 
         stepView = findViewById(R.id.step_view);
@@ -103,7 +121,7 @@ public class Authentication extends AppCompatActivity {
             public void onClick(View view) {
 
                 String phoneNumbers = phoneNum.getText().toString();
-                String phoneNumber = "+55" + phoneNumbers;
+                phoneNumber = "+55" + phoneNumbers;
                 phonenumberText.setText(phoneNumber);
 
                 if (TextUtils.isEmpty(phoneNumber)) {
@@ -135,6 +153,7 @@ public class Authentication extends AppCompatActivity {
         mCallbacks =new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+
                 LayoutInflater inflater = getLayoutInflater();
                 View alertLayout= inflater.inflate(R.layout.processing_dialog,null);
                 AlertDialog.Builder show = new AlertDialog.Builder(Authentication.this);
@@ -142,6 +161,7 @@ public class Authentication extends AppCompatActivity {
                 show.setView(alertLayout);
                 show.setCancelable(false);
                 dialog_verifying = show.create();
+                dialog_verifying.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog_verifying.show();
                 signInWithPhoneAuthCredential(phoneAuthCredential);
             }
@@ -166,24 +186,35 @@ public class Authentication extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String verificationCode = verifyCodeET.getText().toString();
-                if(verificationCode.isEmpty()){
-                    Toast.makeText(Authentication.this,"Digite o código de verificação que enviamos por SMS",Toast.LENGTH_SHORT).show();
-                }else {
+                if (Common.isConnectedToInternet(getBaseContext())) {
 
-                    LayoutInflater inflater = getLayoutInflater();
-                    View alertLayout= inflater.inflate(R.layout.processing_dialog,null);
-                    AlertDialog.Builder show = new AlertDialog.Builder(Authentication.this);
+                    String verificationCode = verifyCodeET.getText().toString();
+                    if (verificationCode.isEmpty()) {
+                        Toast.makeText(Authentication.this, "Digite o código de verificação que enviamos por SMS", Toast.LENGTH_SHORT).show();
+                    } else {
 
-                    show.setView(alertLayout);
-                    show.setCancelable(false);
-                    dialog_verifying = show.create();
-                    dialog_verifying.show();
+                        LayoutInflater inflater = getLayoutInflater();
+                        View alertLayout = inflater.inflate(R.layout.processing_dialog, null);
+                        AlertDialog.Builder show = new AlertDialog.Builder(Authentication.this);
 
-                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, verificationCode);
-                    signInWithPhoneAuthCredential(credential);
+                        show.setView(alertLayout);
+                        show.setCancelable(false);
+                        dialog_verifying = show.create();
+                        dialog_verifying.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                        dialog_verifying.show();
 
-                }
+                        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, verificationCode);
+                        signInWithPhoneAuthCredential(credential);
+
+                    }
+
+                }else{
+
+                Toasty.error(getApplicationContext(), "Sem conexão com a Internet", Toast.LENGTH_SHORT).show();
+
+                return;
+            }
+
             }
         });
 
@@ -191,28 +222,55 @@ public class Authentication extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (currentStep < stepView.getStepCount() - 1) {
-                    currentStep++;
-                    stepView.go(currentStep, true);
-                } else {
-                    stepView.done(true);
-                }
-                LayoutInflater inflater = getLayoutInflater();
-                View alertLayout= inflater.inflate(R.layout.profile_create_dialog,null);
-                AlertDialog.Builder show = new AlertDialog.Builder(Authentication.this);
-                show.setView(alertLayout);
-                show.setCancelable(false);
-                profile_dialog = show.create();
-                profile_dialog.show();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        profile_dialog.dismiss();
-                        startActivity(new Intent(Authentication.this,Profile.class));
-                        finish();
+                if(TextUtils.isEmpty(nomeAuth.getText())){
+
+                    nomeAuth.setError("Por favor, digite seu nome");
+                    nomeAuth.requestFocus();
+
+                }else {
+
+                    //Gravando Token e Nome do Usuário
+                    final String user_id = mAuth.getCurrentUser().getUid();
+                    String token_id = FirebaseInstanceId.getInstance().getToken();
+                    String name = nomeAuth.getText().toString();
+
+                    Map<String, Object> userMap = new HashMap<>();
+                    userMap.put("name", name);
+                    userMap.put("token_id", token_id);
+
+                    mFirestore.collection("Users").document(user_id).set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+
+                        }
+                    });
+                    //...
+
+                    if (currentStep < stepView.getStepCount() - 1) {
+                        currentStep++;
+                        stepView.go(currentStep, true);
+                    } else {
+                        stepView.done(true);
                     }
-                },5000);
+                    LayoutInflater inflater = getLayoutInflater();
+                    View alertLayout = inflater.inflate(R.layout.profile_create_dialog, null);
+                    AlertDialog.Builder show = new AlertDialog.Builder(Authentication.this);
+                    show.setView(alertLayout);
+                    show.setCancelable(false);
+                    profile_dialog = show.create();
+                    profile_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    profile_dialog.show();
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            profile_dialog.dismiss();
+                            startActivity(new Intent(Authentication.this, MainActivity.class));
+                            finish();
+                        }
+                    }, 5000);
+
+                }
             }
         });
 
@@ -224,6 +282,7 @@ public class Authentication extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             dialog_verifying.dismiss();
@@ -236,11 +295,11 @@ public class Authentication extends AppCompatActivity {
                             layout1.setVisibility(View.GONE);
                             layout2.setVisibility(View.GONE);
                             layout3.setVisibility(View.VISIBLE);
-                            // ...
+
                         } else {
 
                             dialog_verifying.dismiss();
-                            Toast.makeText(Authentication.this,"Algo está errado",Toast.LENGTH_SHORT).show();
+                            Toasty.error(Authentication.this, "Algo está errado", Toast.LENGTH_SHORT).show();
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
 
@@ -248,7 +307,13 @@ public class Authentication extends AppCompatActivity {
                         }
                     }
                 });
+    }
 
+    @Override
+    public void onBackPressed() {
 
+        Intent intent = new Intent(Authentication.this, PhoneAuth.class);
+        startActivity(intent);
+        finish();
     }
 }

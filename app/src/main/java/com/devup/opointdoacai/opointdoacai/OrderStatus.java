@@ -1,5 +1,6 @@
 package com.devup.opointdoacai.opointdoacai;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -47,6 +48,8 @@ public class OrderStatus extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(OrderStatus.this, MainActivity.class);
+                startActivity(intent);
                 finish();
 
             }
