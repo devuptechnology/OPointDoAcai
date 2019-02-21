@@ -34,6 +34,7 @@
 ## Informações de Construção:
 - Versão de Compilação SDK: Android Oreo 8.1 API SDK 27
 - SDK Minimo: Android Jelly Bean 4.1 API SDK 16
+- Plataforma: Somente Android
 
 
 ## Desing de Interface:
