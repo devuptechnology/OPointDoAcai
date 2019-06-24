@@ -6,6 +6,8 @@
 - Java Script
 - SQL
 - Json
+- HTML5
+- CSS3
 
 ### Bancos de Dados:
 - Firebase Realtime Database
@@ -13,8 +15,9 @@
 - Shared Preferences
 - SQLite Database (para armazenamento provisório)
 
-### Autenticação:
-- Firebase Phone Authentication
+### Tecnologias:
+- JQuery
+- Saas
 
 ### Outras Ferramentas:
 - Firebase Cloud Messaging
