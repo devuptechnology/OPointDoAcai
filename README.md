@@ -1,5 +1,5 @@
 # Aplicativo O Point Do Acai
-[![Actions Status][gh-actions-badge]][gh-actions]
+[![Actions Status][gh-actions-badge]][gh-actions]()
 
 ## Ferramentas Utilizadas neste projeto:
 ### Linguagens:
@@ -48,3 +48,6 @@
 
 
 Todos os direitos Reservados:O Point do Açaí - Dev.up Technology
+
+[gh-actions]: https://github.com/firebase/FirebaseUI-Android/actions
+[gh-actions-badge]: https://github.com/firebase/FirebaseUI-Android/workflows/Android%20CI/badge.svg
