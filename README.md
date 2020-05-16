@@ -6,6 +6,11 @@ https://firebaseopensource.com/projects/firebase/firebaseui-android
 
 FirebaseUI is an open-source library for Android that allows you to
 quickly connect common UI elements to [Firebase](https://firebase.google.com) APIs.
+
+A compatible FirebaseUI client is also available for [iOS](https://github.com/firebase/firebaseui-ios).
+
+FirebaseUI is an open-source library for Android that allows you to
+quickly connect common UI elements to [Firebase](https://firebase.google.com) APIs.
 ## Ferramentas Utilizadas neste projeto:
 ### Linguagens:
 - Java
