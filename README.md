@@ -1,7 +1,4 @@
 # Aplicativo O Point Do Acai
-[![FirebaseOpensource.com](https://img.shields.io/badge/Docs-firebaseopensource.com-orange.svg)](
-https://firebaseopensource.com/projects/firebase/firebaseui-android
-)
 [![Actions Status][gh-actions-badge]][gh-actions]
 
 ## Ferramentas Utilizadas neste projeto:
